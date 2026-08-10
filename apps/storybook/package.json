@@ -1,0 +1,30 @@
+{
+  "name": "@samuel-ui/storybook",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@samuel-ui/react": "workspace:*",
+    "@samuel-ui/tokens": "workspace:*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^8.4.5",
+    "@storybook/addon-essentials": "^8.4.5",
+    "@storybook/addon-interactions": "^8.4.5",
+    "@storybook/addon-themes": "^8.4.5",
+    "@storybook/react": "^8.4.5",
+    "@storybook/react-vite": "^8.4.5",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "storybook": "^8.4.5",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10"
+  }
+}

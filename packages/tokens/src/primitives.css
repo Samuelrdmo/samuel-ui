@@ -1,0 +1,90 @@
+/**
+ * Primitive tokens — raw, theme-agnostic values.
+ * Extracted from samuelrdmo.com's real design language (src/styles/global.css)
+ * and extended where the source site had no equivalent (feedback colors).
+ * Nothing here is theme-aware — see semantic.css for light/dark mapping.
+ */
+:root {
+  /* ---- Brand / Lime-green scale ---- */
+  --su-brand-50: #e8fff0;
+  --su-brand-100: #c7ffd9;
+  --su-brand-200: #8cffb0;
+  --su-brand-300: #4dff7f;
+  --su-brand-400: #1dff61;
+  --su-brand-500: #00ff4e;
+  --su-brand-600: #00d941;
+  --su-brand-700: #00a833;
+  --su-brand-800: #007a27;
+  --su-brand-900: #00571d;
+
+  /* ---- Neutral scale ---- */
+  --su-neutral-0: #ffffff;
+  --su-neutral-50: #f4f4f4;
+  --su-neutral-100: #e8e8e8;
+  --su-neutral-200: #cfcfcf;
+  --su-neutral-300: #a6a6a6;
+  --su-neutral-400: #7a7a7a;
+  --su-neutral-500: #5c5c5c;
+  --su-neutral-600: #3a3a3a;
+  --su-neutral-700: #2e2e2e;
+  --su-neutral-800: #242424;
+  --su-neutral-900: #151515;
+  --su-neutral-950: #000000;
+
+  /* ---- Feedback scale (new — no equivalent on the source site) ---- */
+  --su-red-500: #ff5449;
+  --su-red-700: #b3392f;
+  --su-amber-500: #ffb020;
+  --su-amber-700: #b37a11;
+  --su-emerald-500: #00d97e;
+  --su-emerald-700: #00975a;
+
+  /* ---- Radius ---- */
+  --su-radius-none: 0px;
+  --su-radius-xs: 2px;
+  --su-radius-sm: 6px;
+  --su-radius-md: 12px;
+  --su-radius-lg: 20px;
+  --su-radius-xl: 32px;
+  --su-radius-full: 999px;
+
+  /* ---- Spacing ---- */
+  --su-space-1: 4px;
+  --su-space-2: 8px;
+  --su-space-3: 12px;
+  --su-space-4: 16px;
+  --su-space-5: 24px;
+  --su-space-6: 32px;
+  --su-space-7: 48px;
+  --su-space-8: 64px;
+  --su-space-9: 96px;
+  --su-space-10: 128px;
+  --su-space-11: 160px;
+  --su-space-12: 192px;
+
+  /* ---- Typography ---- */
+  --su-font-heading: 'Inter Tight', 'General Sans', sans-serif;
+  --su-font-body: 'Inter', sans-serif;
+  --su-font-mono: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+
+  --su-text-xs: 12px;
+  --su-text-sm: 13px;
+  --su-text-base: 16px;
+  --su-text-lg: 18px;
+  --su-text-xl: 22px;
+  --su-text-2xl: 28px;
+  --su-text-3xl: 36px;
+  --su-text-4xl: 48px;
+  --su-text-5xl: 64px;
+  --su-text-6xl: 88px;
+
+  /* ---- Shadows (raw, dark-tuned — semantic.css softens these for light) ---- */
+  --su-shadow-raw-sm: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --su-shadow-raw-md: 0 24px 80px rgba(0, 0, 0, 0.45);
+  --su-shadow-raw-lg: 0 32px 100px rgba(0, 0, 0, 0.6);
+
+  /* ---- Brand glow ---- */
+  --su-glow-soft: 0 0 24px rgba(0, 255, 78, 0.18);
+  --su-glow-medium: 0 0 48px rgba(0, 255, 78, 0.28);
+  --su-glow-strong: 0 0 80px rgba(0, 255, 78, 0.38);
+}
