@@ -5,4 +5,5 @@ import * as Modal from './components/modal';
 import * as Card from './components/card';
 
 export { Button, Input, Select, Modal, Card };
+export { Skeleton } from './components/skeleton';
 export { cn } from './lib/cn';

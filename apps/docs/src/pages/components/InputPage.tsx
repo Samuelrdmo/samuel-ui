@@ -1,7 +1,10 @@
-import { Input } from '@samuel-ui/react';
+import { Trans, useTranslation } from 'react-i18next';
+import { Input, Skeleton } from '@samuel-ui/react';
 import { Breadcrumb } from '../../components/docs/Breadcrumb';
 import { ComponentPageActions } from '../../components/docs/ComponentPageActions';
 import { Section } from '../../components/docs/Section';
+import { SubLabel } from '../../components/docs/SubLabel';
+import { ExamplesSurface } from '../../components/docs/ExamplesSurface';
 import { CodeBlock } from '../../components/CodeBlock';
 import { CompositionTree } from '../../components/docs/CompositionTree';
 import { PropsTable } from '../../components/docs/PropsTable';
@@ -19,43 +22,70 @@ const errorCode = `<Input.Root invalid>
   <Input.ErrorMessage>Invalid email.</Input.ErrorMessage>
 </Input.Root>`;
 
+const codeTag = <code className="font-mono text-xs" />;
+
 export function InputPage() {
+  const { t } = useTranslation();
+
   return (
     <div>
-      <Breadcrumb trail={['Components', 'Input']} />
-      <h1 className="mb-2 text-3xl font-semibold tracking-[-0.01em] text-fg-primary">Input</h1>
-      <p className="mb-6 max-w-xl text-base text-fg-secondary">
-        A labeled text field with helper and error messaging, built as a compound component sharing state via context.
-      </p>
+      <Breadcrumb trail={[t('breadcrumb.components'), t('components.input.title')]} />
+      <h1 className="mb-2 text-3xl font-semibold tracking-[-0.01em] text-fg-primary">{t('components.input.title')}</h1>
+      <p className="mb-6 max-w-xl text-base text-fg-secondary">{t('components.input.description')}</p>
 
       <div className="mb-14">
         <ComponentPageActions slug="input" figmaUrl={figmaLinks.input} />
       </div>
 
-      <Section title="Preview">
-        <div className="flex flex-col gap-6 rounded-md border border-border bg-surface-elevated p-10 sm:flex-row">
-          <Input.Root className="w-full max-w-xs">
-            <Input.Label>Email</Input.Label>
-            <Input.Control placeholder="name@example.com" />
-            <Input.HelperText>We'll never share your email.</Input.HelperText>
-          </Input.Root>
-          <Input.Root className="w-full max-w-xs" invalid>
-            <Input.Label>Email</Input.Label>
-            <Input.Control placeholder="name@example.com" defaultValue="not-an-email" />
-            <Input.ErrorMessage>Invalid email.</Input.ErrorMessage>
-          </Input.Root>
+      <Section title={t('sections.examples')}>
+        <ExamplesSurface>
+          <div className="max-w-xs">
+            <Input.Root>
+              <Input.Label>{t('home.emailLabel')}</Input.Label>
+              <Input.Control placeholder="name@example.com" />
+              <Input.HelperText>We'll never share your email.</Input.HelperText>
+            </Input.Root>
+          </div>
+
+          <div className="mt-10">
+            <SubLabel>{t('sections.states')}</SubLabel>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <Input.Root>
+                <Input.Label>{t('components.input.demo.default')}</Input.Label>
+                <Input.Control placeholder={t('components.input.demo.typeSomething') as string} />
+              </Input.Root>
+              <Input.Root disabled>
+                <Input.Label>{t('components.input.demo.disabled')}</Input.Label>
+                <Input.Control placeholder={t('components.input.demo.cantType') as string} />
+              </Input.Root>
+              <Input.Root>
+                <Input.Label>{t('components.input.demo.filled')}</Input.Label>
+                <Input.Control defaultValue="samuel@example.com" />
+              </Input.Root>
+              <Input.Root invalid>
+                <Input.Label>{t('components.input.demo.error')}</Input.Label>
+                <Input.Control defaultValue="not-an-email" />
+                <Input.ErrorMessage>Invalid email.</Input.ErrorMessage>
+              </Input.Root>
+              <div className="flex flex-col gap-2">
+                <Skeleton className="h-3 w-16" />
+                <Skeleton className="h-11 w-full" />
+              </div>
+            </div>
+          </div>
+        </ExamplesSurface>
+
+        <div className="mt-6">
+          <SubLabel>{t('sections.errorState')}</SubLabel>
+          <CodeBlock code={errorCode} />
         </div>
       </Section>
 
-      <Section title="Code">
-        <CodeBlock code={previewCode} />
-      </Section>
-
-      <Section title="Usage">
+      <Section title={t('sections.usage')}>
         <CodeBlock code={`import { Input } from '@samuel-ui/react';\n\n${previewCode}`} />
       </Section>
 
-      <Section title="Composition">
+      <Section title={t('sections.composition')}>
         <CompositionTree
           lines={[
             'Input.Root',
@@ -67,54 +97,26 @@ export function InputPage() {
         />
       </Section>
 
-      <Section title="States">
-        <div className="grid gap-6 rounded-md border border-border bg-surface-elevated p-8 sm:grid-cols-2">
-          <Input.Root>
-            <Input.Label>Default</Input.Label>
-            <Input.Control placeholder="Type something" />
-          </Input.Root>
-          <Input.Root disabled>
-            <Input.Label>Disabled</Input.Label>
-            <Input.Control placeholder="Can't type here" />
-          </Input.Root>
-          <Input.Root>
-            <Input.Label>Filled</Input.Label>
-            <Input.Control defaultValue="samuel@example.com" />
-          </Input.Root>
-          <Input.Root invalid>
-            <Input.Label>Error</Input.Label>
-            <Input.Control defaultValue="not-an-email" />
-            <Input.ErrorMessage>Invalid email.</Input.ErrorMessage>
-          </Input.Root>
-        </div>
-      </Section>
-
-      <Section title="Error example">
-        <CodeBlock code={errorCode} />
-      </Section>
-
-      <Section title="Accessibility">
+      <Section title={t('sections.accessibility')}>
         <ul className="list-disc space-y-1.5 pl-5 text-sm text-fg-secondary">
-          <li>Label and control are linked automatically via a generated <code className="font-mono text-xs">id</code>/<code className="font-mono text-xs">htmlFor</code> pair.</li>
-          <li><code className="font-mono text-xs">aria-describedby</code> points at helper and/or error text; <code className="font-mono text-xs">aria-invalid</code> is set from <code className="font-mono text-xs">invalid</code>.</li>
-          <li>Error text has <code className="font-mono text-xs">role="alert"</code> so assistive tech announces it when it appears.</li>
+          <li><Trans i18nKey="components.input.a11y.label" components={{ code: codeTag }} /></li>
+          <li><Trans i18nKey="components.input.a11y.describedby" components={{ code: codeTag }} /></li>
+          <li><Trans i18nKey="components.input.a11y.error" components={{ code: codeTag }} /></li>
         </ul>
       </Section>
 
-      <Section title="API Reference">
+      <Section title={t('sections.properties')}>
         <PropsTable
           rows={[
-            { prop: 'invalid', type: 'boolean', default: 'false', description: 'Marks every child as invalid (border, aria-invalid, error styling).' },
-            { prop: 'disabled', type: 'boolean', default: 'false', description: 'Disables Input.Control unless overridden directly on it.' },
+            { prop: 'invalid', type: 'boolean', default: 'false', description: t('components.input.api.invalid') },
+            { prop: 'disabled', type: 'boolean', default: 'false', description: t('components.input.api.disabled') },
           ]}
         />
       </Section>
 
-      <Section title="Design">
+      <Section title={t('sections.design')}>
         <p className="text-sm text-fg-secondary">
-          {figmaLinks.input
-            ? 'Open the component in Figma using the action above.'
-            : 'Not yet connected to Figma — the link will appear here once the component is published in the file.'}
+          {figmaLinks.input ? t('design.connected') : t('design.notConnected')}
         </p>
       </Section>
     </div>

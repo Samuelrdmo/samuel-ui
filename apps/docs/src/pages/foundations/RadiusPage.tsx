@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { PageHeader } from '../../components/docs/PageHeader';
 import { Section } from '../../components/docs/Section';
 
@@ -12,15 +13,17 @@ const radii = [
 ];
 
 export function RadiusPage() {
+  const { t } = useTranslation();
+
   return (
     <div>
       <PageHeader
-        eyebrow="Foundations"
-        title="Radius"
-        description="A small, deliberate set of radii — sharp enough to feel technical, soft enough to feel considered."
+        eyebrow={t('foundations.radius.eyebrow')}
+        title={t('foundations.radius.title')}
+        description={t('foundations.radius.description')}
       />
 
-      <Section title="Scale">
+      <Section title={t('foundations.radius.scaleTitle')}>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
           {radii.map((r) => (
             <div key={r.name} className="flex flex-col items-center gap-2">

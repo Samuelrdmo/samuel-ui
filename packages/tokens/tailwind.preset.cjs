@@ -68,11 +68,21 @@ module.exports = {
           to: { opacity: 1, transform: 'scale(1) translateY(0)' },
         },
         'su-overlay-in': { from: { opacity: 0 }, to: { opacity: 1 } },
+        'su-modal-in': {
+          from: { opacity: 0, transform: 'translate(-50%, -50%) scale(0.96) translateY(4px)' },
+          to: { opacity: 1, transform: 'translate(-50%, -50%) scale(1) translateY(0)' },
+        },
+        'su-shimmer': {
+          from: { transform: 'translateX(-100%)' },
+          to: { transform: 'translateX(100%)' },
+        },
       },
       animation: {
         'su-fade-in': 'su-fade-in 0.15s ease-out',
         'su-scale-in': 'su-scale-in 0.15s ease-out',
         'su-overlay-in': 'su-overlay-in 0.2s ease-out',
+        'su-modal-in': 'su-modal-in 0.15s ease-out',
+        'su-shimmer': 'su-shimmer 1.6s ease-in-out infinite',
       },
     },
   },

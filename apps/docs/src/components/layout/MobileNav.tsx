@@ -1,7 +1,9 @@
 import { X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { SidebarNav } from './Sidebar';
 
 export function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const { t } = useTranslation();
   if (!open) return null;
 
   return (
@@ -11,8 +13,8 @@ export function MobileNav({ open, onClose }: { open: boolean; onClose: () => voi
         <button
           type="button"
           onClick={onClose}
-          aria-label="Close navigation"
-          className="mb-6 flex size-8 items-center justify-center rounded-xs text-fg-caption"
+          aria-label={t('header.closeNav')}
+          className="mb-6 flex size-8 items-center justify-center rounded-none text-fg-caption"
         >
           <X className="size-4" aria-hidden />
         </button>

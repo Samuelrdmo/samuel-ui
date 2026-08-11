@@ -1,32 +1,24 @@
+import { useTranslation } from 'react-i18next';
 import { PageHeader } from '../../components/docs/PageHeader';
 import { Section } from '../../components/docs/Section';
 
 export function IntroductionPage() {
+  const { t } = useTranslation();
+
   return (
     <div>
       <PageHeader
-        eyebrow="Getting Started"
-        title="Introduction"
-        description="Samuel UI is a React design system built to explore the relationship between design, componentization, documentation and implementation."
+        eyebrow={t('docs.introduction.eyebrow')}
+        title={t('docs.introduction.title')}
+        description={t('docs.introduction.description')}
       />
 
-      <Section title="What this is">
-        <p className="max-w-2xl text-sm leading-relaxed text-fg-secondary">
-          Samuel UI is simultaneously a design system, a React component library, technical
-          documentation, a UI engineering showcase, a Figma-to-code bridge and documentation
-          written to be consumed efficiently by an LLM. V1 ships exactly five components — Button,
-          Input, Select, Modal and Card — built with the same care a much larger system would
-          demand.
-        </p>
+      <Section title={t('docs.introduction.whatTitle')}>
+        <p className="max-w-2xl text-sm leading-relaxed text-fg-secondary">{t('docs.introduction.whatBody')}</p>
       </Section>
 
-      <Section title="Why five components">
-        <p className="max-w-2xl text-sm leading-relaxed text-fg-secondary">
-          Quality over quantity. Each component uses compound composition where it earns its
-          keep, is built on top of semantic design tokens, and is accessible by default —
-          keyboard interaction, focus management and ARIA are part of the implementation, not an
-          afterthought.
-        </p>
+      <Section title={t('docs.introduction.whyTitle')}>
+        <p className="max-w-2xl text-sm leading-relaxed text-fg-secondary">{t('docs.introduction.whyBody')}</p>
       </Section>
     </div>
   );

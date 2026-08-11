@@ -15,7 +15,7 @@ const Content = forwardRef<
     <DialogPrimitive.Content
       ref={ref}
       className={cn(
-        'fixed left-1/2 top-1/2 z-50 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-lg border border-border bg-surface-elevated p-6 shadow-lg animate-su-scale-in',
+        'fixed left-1/2 top-1/2 z-50 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-none border border-border bg-surface-elevated p-6 shadow-lg animate-su-modal-in',
         'focus-visible:outline-none',
         className
       )}
@@ -24,7 +24,7 @@ const Content = forwardRef<
       {children}
       {!hideCloseButton && (
         <DialogPrimitive.Close
-          className="absolute right-4 top-4 rounded-xs text-fg-caption transition-colors hover:text-fg-primary focus-visible:outline-none focus-visible:shadow-focus"
+          className="absolute right-4 top-4 rounded-none text-fg-caption transition-colors hover:text-fg-primary focus-visible:outline-none focus-visible:shadow-focus"
           aria-label="Close"
         >
           <X className="size-4" aria-hidden />

@@ -1,0 +1,386 @@
+{
+  "header": {
+    "documentation": "Documentation",
+    "storybook": "Storybook",
+    "github": "GitHub",
+    "figma": "Figma",
+    "figmaTooltip": "Figma links are configured per-component",
+    "openNav": "Open navigation",
+    "closeNav": "Close navigation",
+    "githubAria": "GitHub"
+  },
+  "theme": {
+    "light": "Light theme",
+    "dark": "Dark theme"
+  },
+  "language": {
+    "portuguese": "Portuguese",
+    "english": "English",
+    "switchTo": "Switch to {{language}}"
+  },
+  "nav": {
+    "groups": {
+      "gettingStarted": "Getting Started",
+      "foundations": "Foundations",
+      "components": "Components"
+    },
+    "items": {
+      "introduction": "Introduction",
+      "installation": "Installation",
+      "designPrinciples": "Design Principles",
+      "colors": "Colors",
+      "typography": "Typography",
+      "spacing": "Spacing",
+      "radius": "Radius",
+      "shadows": "Shadows",
+      "button": "Button",
+      "input": "Input",
+      "select": "Select",
+      "modal": "Modal",
+      "card": "Card"
+    }
+  },
+  "breadcrumb": {
+    "components": "Components"
+  },
+  "home": {
+    "meta": {
+      "title": "Samuel UI | An independent design system for consistent interfaces",
+      "description": "Explore the visual foundations, tokens, components and documentation behind Samuel UI, an independent design system built in React."
+    },
+    "eyebrow": "Independent design system",
+    "title": "An independent design system for consistent interfaces.",
+    "description": "Samuel UI brings visual foundations, tokens, components and usage patterns into a shared base built to organize decisions, document interfaces and connect design with code.",
+    "ctaDocumentation": "Explore documentation",
+    "ctaGithub": "View on GitHub",
+    "metrics": [
+      { "value": "05", "label": "components" },
+      { "value": "05", "label": "foundations" },
+      { "value": "02", "label": "themes" }
+    ],
+    "blueprint": {
+      "ariaLabel": "Map of the five Samuel UI layers",
+      "label": "system.map",
+      "status": "evolving",
+      "footer": "semantic tokens active"
+    },
+    "about": {
+      "eyebrow": "About Samuel UI",
+      "title": "Visual decisions become structure.",
+      "description": "Samuel UI is an independent project for exploring consistent interfaces from a clearly defined visual and technical base. It records the thinking behind the system, organizes usage patterns and turns components into reusable pieces of code.",
+      "typeLabel": "Project",
+      "typeValue": "Design system",
+      "authorLabel": "Created by",
+      "authorValue": "Samuel Ramos"
+    },
+    "capabilities": {
+      "eyebrow": "What the project demonstrates",
+      "title": "A system is as much about decisions as components.",
+      "description": "Every part shows the full process, from visual direction to clear usage guidance.",
+      "tagsLabel": "Topics in {{title}}",
+      "items": [
+        {
+          "title": "Design System",
+          "description": "Foundations, tokens, components, states and variants organized as one coherent visual language.",
+          "tags": ["tokens", "components", "accessibility"]
+        },
+        {
+          "title": "Design Ops",
+          "description": "Documentation, usage rules and a predictable structure that can grow without losing clarity.",
+          "tags": ["governance", "patterns", "scale"]
+        },
+        {
+          "title": "Front-end",
+          "description": "React components with composition, states and APIs designed for real use.",
+          "tags": ["React", "APIs", "composition"]
+        },
+        {
+          "title": "Documentation",
+          "description": "Examples, properties and accessibility treated as part of the product, not an afterthought.",
+          "tags": ["usage", "properties", "examples"]
+        }
+      ]
+    },
+    "layers": {
+      "eyebrow": "How the system is built",
+      "title": "Five layers, one language.",
+      "description": "The system starts with simple visual decisions, then adds meaning until they become documented components ready for real interfaces.",
+      "items": [
+        { "title": "Foundations", "description": "Color, typography, spacing, radius, borders and elevation form the visual base.", "artifact": "foundation.*" },
+        { "title": "Tokens", "description": "Primitive and semantic values connect identity, themes and implementation.", "artifact": "semantic.*" },
+        { "title": "Components", "description": "Interface elements bring together variants, sizes, states and composition.", "artifact": "component.*" },
+        { "title": "Patterns", "description": "Recurring combinations solve flows without reinventing decisions.", "artifact": "pattern.*" },
+        { "title": "Documentation", "description": "Usage, properties and accessibility make every choice clear and applicable.", "artifact": "docs.*" }
+      ]
+    },
+    "purpose": {
+      "eyebrow": "Why this project exists",
+      "title": "Turn visual decisions into something people can use and evolve.",
+      "description": "Samuel UI exists to show the thinking behind a consistent interface. Each layer records what changes, what stays and how a visual choice reaches the product.",
+      "principles": [
+        { "label": "Visual", "detail": "A base that makes hierarchy intentional." },
+        { "label": "System", "detail": "Tokens and patterns that reduce repeated decisions." },
+        { "label": "Implementation", "detail": "Predictable APIs that preserve the visual logic." }
+      ],
+      "output": "design + documentation + code = system"
+    },
+    "finalCta": {
+      "eyebrow": "Explore the system",
+      "title": "See how each decision reaches a component.",
+      "description": "The documentation brings together structure, examples, states, properties and accessibility guidance for every component.",
+      "button": "View components"
+    }
+  },
+  "docs": {
+    "introduction": {
+      "eyebrow": "Getting Started",
+      "title": "Introduction",
+      "description": "Samuel UI is a design system: foundations, decisions, components, patterns and documentation used to build consistent interfaces.",
+      "whatTitle": "What this is",
+      "whatBody": "Samuel UI is simultaneously a design system, a React component library, technical documentation, a UI engineering showcase and documentation written to be consumed efficiently by an LLM. A design system is more than a component library — it's the set of foundations, tokens, patterns and decisions that keep interfaces consistent at scale. V1 ships exactly five components — Button, Input, Select, Modal and Card — built with the same care a much larger system would demand.",
+      "whyTitle": "Why five components",
+      "whyBody": "Quality over quantity. Each component uses compound composition where it earns its keep, is built on top of semantic design tokens, and is accessible by default — keyboard interaction, focus management and ARIA are part of the implementation, not an afterthought."
+    },
+    "installation": {
+      "eyebrow": "Getting Started",
+      "title": "Installation",
+      "description": "Samuel UI is developed as a pnpm workspace. The package is not published to npm yet — clone the repository to use it locally.",
+      "cloneTitle": "Clone & install",
+      "runTitle": "Run the docs site",
+      "publishedTitle": "Once published"
+    },
+    "designPrinciples": {
+      "eyebrow": "Getting Started",
+      "title": "Design Principles",
+      "description": "The rules that shape every component decision in Samuel UI.",
+      "sectionTitle": "Principles",
+      "principles": [
+        {
+          "title": "Composition over configuration",
+          "body": "Compound components (Modal.Root, Modal.Trigger, Modal.Content…) instead of one giant component with dozens of boolean props."
+        },
+        {
+          "title": "Tokens, not values",
+          "body": "No component reads a raw hex or pixel value. Everything resolves through semantic CSS variables so themes stay consistent by construction."
+        },
+        {
+          "title": "Accessible by default",
+          "body": "Keyboard interaction, focus management and ARIA are part of the component, not a follow-up task. Radix primitives handle it where the behavior is complex (Select, Modal)."
+        },
+        {
+          "title": "Documentation is a first-class product",
+          "body": "The docs site and Storybook consume the same real components and the same AI context files — there is exactly one source of truth."
+        }
+      ]
+    }
+  },
+  "foundations": {
+    "colors": {
+      "eyebrow": "Foundations",
+      "title": "Colors",
+      "description": "Primitive scales feed semantic tokens, which are the only colors components are allowed to reference. Values shown resolve for the active theme.",
+      "primitiveBrandTitle": "Primitive — brand",
+      "primitiveNeutralTitle": "Primitive — neutral",
+      "semanticTitle": "Semantic tokens — light & dark mapping",
+      "groups": {
+        "surface": "Surface",
+        "foreground": "Foreground",
+        "border": "Border",
+        "action": "Action",
+        "feedback": "Feedback"
+      }
+    },
+    "typography": {
+      "eyebrow": "Foundations",
+      "title": "Typography",
+      "description": "Three families, one job each: Inter Tight for headings, Inter for body copy, JetBrains Mono for labels, code and anything technical.",
+      "scaleTitle": "Type scale",
+      "familiesTitle": "Font families",
+      "scale": {
+        "display": "Display",
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "body": "Body",
+        "small": "Small",
+        "caption": "Caption",
+        "code": "Code"
+      },
+      "samples": {
+        "display": "Samuel UI",
+        "heading": "Design and code",
+        "subheading": "Speaking the same language",
+        "body": "A design system for people who ship.",
+        "small": "Helper text and secondary content.",
+        "caption": "UPPERCASE LABEL"
+      },
+      "families": {
+        "heading": "Heading",
+        "body": "Body",
+        "mono": "Mono"
+      }
+    },
+    "spacing": {
+      "eyebrow": "Foundations",
+      "title": "Spacing",
+      "description": "A 4px-based scale used consistently for padding, gaps and layout rhythm across the whole system.",
+      "scaleTitle": "Scale"
+    },
+    "radius": {
+      "eyebrow": "Foundations",
+      "title": "Radius",
+      "description": "A small, deliberate set of radii — sharp enough to feel technical, soft enough to feel considered.",
+      "scaleTitle": "Scale"
+    },
+    "shadows": {
+      "eyebrow": "Foundations",
+      "title": "Shadows",
+      "description": "Elevation levels. Dark mode uses ambient black shadows; light mode softens them so nothing looks muddy on a bright surface.",
+      "elevationTitle": "Elevation",
+      "levels": {
+        "sm": "Subtle lift — hovered rows, small controls.",
+        "md": "Cards, popovers, dropdown content.",
+        "lg": "Modals and anything floating above the page.",
+        "focus": "Focus ring — brand-colored, replaces default outline."
+      }
+    }
+  },
+  "sections": {
+    "examples": "Examples",
+    "usage": "Usage",
+    "composition": "Composition",
+    "variants": "Variants",
+    "sizes": "Sizes",
+    "states": "States",
+    "errorState": "Error state",
+    "accessibility": "Accessibility",
+    "properties": "Properties",
+    "design": "Design"
+  },
+  "table": {
+    "prop": "Prop",
+    "type": "Type",
+    "default": "Default",
+    "description": "Description"
+  },
+  "design": {
+    "connected": "Open the component in Figma using the action above.",
+    "notConnected": "Not connected to Figma yet. The link will appear here once the component is published in the file."
+  },
+  "actions": {
+    "openInFigma": "Open in Figma",
+    "openInStorybook": "Open in Storybook",
+    "viewSource": "View source",
+    "copyForAi": "Copy for AI",
+    "aiContextCopied": "AI context copied",
+    "downloadAiContext": "Download AI Context",
+    "copyCode": "Copy code",
+    "copied": "Copied"
+  },
+  "components": {
+    "button": {
+      "title": "Button",
+      "description": "Triggers an action or event, such as submitting a form or opening a dialog.",
+      "demo": { "small": "Small", "medium": "Medium", "large": "Large", "default": "Default", "disabled": "Disabled", "loading": "Loading" },
+      "a11y": {
+        "native": "Renders a native <code>button</code> element, so keyboard and screen reader support come for free.",
+        "loading": "<code>loading</code> sets <code>aria-busy</code> and disables the button, but never hides its accessible name.",
+        "focus": "Focus is always visible through <code>--shadow-focus</code> and is never removed without a replacement."
+      },
+      "api": {
+        "variant": "Visual style of the button.",
+        "size": "Controls height, padding and font size.",
+        "loading": "Shows a spinner and disables the button.",
+        "disabled": "Native disabled state."
+      }
+    },
+    "input": {
+      "title": "Input",
+      "description": "A labeled text field with helper and error messages, built as a compound component that shares state through context.",
+      "demo": {
+        "default": "Default",
+        "disabled": "Disabled",
+        "filled": "Filled",
+        "error": "Error",
+        "typeSomething": "Type something",
+        "cantType": "Can't type here"
+      },
+      "a11y": {
+        "label": "Label and control are linked automatically through a generated <code>id</code> and <code>htmlFor</code> pair.",
+        "describedby": "<code>aria-describedby</code> points to the helper or error text, and <code>aria-invalid</code> follows the <code>invalid</code> prop.",
+        "error": "Error text has <code>role=\"alert\"</code> so assistive tech announces it when it appears."
+      },
+      "api": {
+        "invalid": "Marks every child as invalid (border, aria-invalid, error styling).",
+        "disabled": "Disables Input.Control unless overridden directly on it."
+      }
+    },
+    "select": {
+      "title": "Select",
+      "description": "An accessible dropdown selection, wrapping Radix UI Select for keyboard navigation and focus management.",
+      "demo": { "default": "Default", "disabled": "Disabled", "researcherSoon": "Researcher (soon)" },
+      "a11y": {
+        "keyboard": "Keyboard navigation (arrow keys, typeahead, Home and End), focus management and ARIA roles all come from Radix UI Select, so none of it is reimplemented here.",
+        "value": "The trigger exposes the current value to screen readers via <code>Select.Value</code>.",
+        "disabledItem": "Disabled items stay visible and are still announced, they just can't be selected."
+      },
+      "api": {
+        "value": "Controlled or uncontrolled selected value.",
+        "onValueChange": "Called when the selection changes.",
+        "disabled": "Disables the whole select."
+      }
+    },
+    "modal": {
+      "title": "Modal",
+      "description": "An accessible dialog for blocking interactions that require user attention, built on Radix UI Dialog.",
+      "deleteProject": "Delete project",
+      "deleteProjectWarning": "This action cannot be undone.",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "examples": {
+        "confirmTrigger": "Publish changes",
+        "confirmTitle": "Publish changes?",
+        "confirmDescription": "This will make your changes visible to everyone.",
+        "confirmAction": "Publish",
+        "formTrigger": "Rename project",
+        "formTitle": "Rename project",
+        "formLabel": "Name",
+        "formSave": "Save"
+      },
+      "a11y": {
+        "radix": "Focus trap, Escape-to-close, scroll lock and overlay click-to-close all come from Radix UI Dialog.",
+        "title": "<code>Modal.Title</code> is required, since Radix uses it as the dialog's accessible name.",
+        "focusReturn": "Focus returns to the trigger element when the modal closes."
+      },
+      "api": {
+        "open": "Controlled or uncontrolled open state (on Modal.Root).",
+        "onOpenChange": "Called when open state changes.",
+        "hideCloseButton": "Hides the top-right close icon on Modal.Content."
+      }
+    },
+    "card": {
+      "title": "Card",
+      "description": "A flexible surface container, recomposed for different situations instead of turning into a one-off \"ProjectCard\".",
+      "sameApiTitle": "Same API, four use cases",
+      "projectCardTitle": "Design Systems",
+      "projectCardDescription": "Project card",
+      "projectCardBody": "Figma → tokens → React, shipped to production.",
+      "projectCardOpen": "Open",
+      "profileCardTitle": "Samuel Ramos",
+      "profileCardDescription": "Profile card",
+      "profileCardBody": "Design Engineer, focused on Design Systems and UI Engineering.",
+      "docsCardTitle": "Getting Started",
+      "docsCardDescription": "Documentation card",
+      "docsCardBody": "Install, import tokens, render your first component.",
+      "metricCardTitle": "128ms",
+      "metricCardDescription": "Metric card",
+      "metricCardBody": "Median interaction latency, last 7 days.",
+      "a11y": {
+        "heading": "<code>Card.Title</code> renders an <code>h3</code> heading, so keep the heading order around it sane.",
+        "interactive": "There's no implicit interactivity. Wrap the whole card in a link or button yourself if the entire surface needs to be clickable."
+      },
+      "api": {
+        "className": "Merged with the default classes on Card.Root. No other props are exposed, composition covers the rest."
+      }
+    }
+  }
+}

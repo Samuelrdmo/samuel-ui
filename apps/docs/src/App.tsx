@@ -14,7 +14,6 @@ import { InputPage } from './pages/components/InputPage';
 import { SelectPage } from './pages/components/SelectPage';
 import { ModalPage } from './pages/components/ModalPage';
 import { CardPage } from './pages/components/CardPage';
-import { UsingWithAiPage } from './pages/ai/UsingWithAiPage';
 
 export default function App() {
   return (
@@ -37,8 +36,6 @@ export default function App() {
         <Route path="/components/select" element={<SelectPage />} />
         <Route path="/components/modal" element={<ModalPage />} />
         <Route path="/components/card" element={<CardPage />} />
-
-        <Route path="/ai/using-with-ai" element={<UsingWithAiPage />} />
       </Route>
     </Routes>
   );

@@ -84,7 +84,7 @@ const Control = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElemen
         aria-invalid={invalid || undefined}
         aria-describedby={cn(helperId, invalid && errorId) || undefined}
         className={cn(
-          'h-11 rounded-sm border bg-surface-elevated px-4 text-sm text-fg-primary placeholder:text-fg-muted transition-colors duration-150',
+          'h-11 rounded-none border bg-surface-elevated px-4 text-sm text-fg-primary placeholder:text-fg-muted transition-colors duration-150',
           'border-border hover:border-border-strong',
           'focus-visible:outline-none focus-visible:border-border-brand focus-visible:shadow-focus',
           invalid && 'border-danger focus-visible:shadow-none focus-visible:border-danger',

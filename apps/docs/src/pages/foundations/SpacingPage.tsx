@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { PageHeader } from '../../components/docs/PageHeader';
 import { Section } from '../../components/docs/Section';
 
@@ -15,21 +16,23 @@ const spacing = [
 ];
 
 export function SpacingPage() {
+  const { t } = useTranslation();
+
   return (
     <div>
       <PageHeader
-        eyebrow="Foundations"
-        title="Spacing"
-        description="A 4px-based scale used consistently for padding, gaps and layout rhythm across the whole system."
+        eyebrow={t('foundations.spacing.eyebrow')}
+        title={t('foundations.spacing.title')}
+        description={t('foundations.spacing.description')}
       />
 
-      <Section title="Scale">
+      <Section title={t('foundations.spacing.scaleTitle')}>
         <div className="flex flex-col gap-3">
           {spacing.map((item) => (
             <div key={item.step} className="flex items-center gap-4">
               <span className="w-16 shrink-0 font-mono text-xs text-fg-caption">--space-{item.step}</span>
               <div
-                className="h-4 rounded-xs bg-action-primary"
+                className="h-4 rounded-none bg-action-primary"
                 style={{ width: `var(--su-space-${item.step})` }}
               />
               <span className="font-mono text-xs text-fg-muted">{item.px}px</span>

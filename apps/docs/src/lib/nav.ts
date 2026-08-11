@@ -1,44 +1,40 @@
 export interface NavItem {
-  label: string;
+  labelKey: string;
   to: string;
 }
 
 export interface NavGroup {
-  title: string;
+  titleKey: string;
   items: NavItem[];
 }
 
 export const navGroups: NavGroup[] = [
   {
-    title: 'Getting Started',
+    titleKey: 'nav.groups.gettingStarted',
     items: [
-      { label: 'Introduction', to: '/docs/introduction' },
-      { label: 'Installation', to: '/docs/installation' },
-      { label: 'Design Principles', to: '/docs/design-principles' },
+      { labelKey: 'nav.items.introduction', to: '/docs/introduction' },
+      { labelKey: 'nav.items.installation', to: '/docs/installation' },
+      { labelKey: 'nav.items.designPrinciples', to: '/docs/design-principles' },
     ],
   },
   {
-    title: 'Foundations',
+    titleKey: 'nav.groups.foundations',
     items: [
-      { label: 'Colors', to: '/foundations/colors' },
-      { label: 'Typography', to: '/foundations/typography' },
-      { label: 'Spacing', to: '/foundations/spacing' },
-      { label: 'Radius', to: '/foundations/radius' },
-      { label: 'Shadows', to: '/foundations/shadows' },
+      { labelKey: 'nav.items.colors', to: '/foundations/colors' },
+      { labelKey: 'nav.items.typography', to: '/foundations/typography' },
+      { labelKey: 'nav.items.spacing', to: '/foundations/spacing' },
+      { labelKey: 'nav.items.radius', to: '/foundations/radius' },
+      { labelKey: 'nav.items.shadows', to: '/foundations/shadows' },
     ],
   },
   {
-    title: 'Components',
+    titleKey: 'nav.groups.components',
     items: [
-      { label: 'Button', to: '/components/button' },
-      { label: 'Input', to: '/components/input' },
-      { label: 'Select', to: '/components/select' },
-      { label: 'Modal', to: '/components/modal' },
-      { label: 'Card', to: '/components/card' },
+      { labelKey: 'nav.items.button', to: '/components/button' },
+      { labelKey: 'nav.items.input', to: '/components/input' },
+      { labelKey: 'nav.items.select', to: '/components/select' },
+      { labelKey: 'nav.items.modal', to: '/components/modal' },
+      { labelKey: 'nav.items.card', to: '/components/card' },
     ],
-  },
-  {
-    title: 'AI',
-    items: [{ label: 'Using Samuel UI with AI', to: '/ai/using-with-ai' }],
   },
 ];

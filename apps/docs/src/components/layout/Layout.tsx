@@ -8,6 +8,7 @@ export function Layout() {
 
   return (
     <div className="min-h-screen bg-canvas">
+      <div className="noise" aria-hidden="true" />
       <Header />
       <div className="mx-auto flex max-w-[1400px]">
         {!isHome && <Sidebar />}

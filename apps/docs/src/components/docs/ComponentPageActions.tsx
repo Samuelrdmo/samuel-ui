@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Bot, Check, Code2, Download, Figma } from 'lucide-react';
 import { Button } from '@samuel-ui/react';
 import { EXTERNAL_LINKS } from '../../lib/links';
@@ -12,6 +13,7 @@ export function ComponentPageActions({
   figmaUrl: string | null;
 }) {
   const [copied, setCopied] = useState(false);
+  const { t } = useTranslation();
 
   async function handleCopyForAi() {
     await copyAiContext(slug);
@@ -27,21 +29,21 @@ export function ComponentPageActions({
             <Button.Icon>
               <Figma />
             </Button.Icon>
-            Open in Figma
+            {t('actions.openInFigma')}
           </Button.Root>
         </a>
       ) : (
-        <Button.Root variant="outline" size="sm" disabled title="Figma link not connected yet">
+        <Button.Root variant="outline" size="sm" disabled title={t('header.figmaTooltip') as string}>
           <Button.Icon>
             <Figma />
           </Button.Icon>
-          Open in Figma
+          {t('actions.openInFigma')}
         </Button.Root>
       )}
 
       <a href={`${EXTERNAL_LINKS.storybook}/?path=/story/${slug}`} target="_blank" rel="noreferrer">
         <Button.Root variant="outline" size="sm">
-          Open in Storybook
+          {t('actions.openInStorybook')}
         </Button.Root>
       </a>
 
@@ -54,20 +56,20 @@ export function ComponentPageActions({
           <Button.Icon>
             <Code2 />
           </Button.Icon>
-          View source
+          {t('actions.viewSource')}
         </Button.Root>
       </a>
 
       <Button.Root variant="secondary" size="sm" onClick={handleCopyForAi}>
         <Button.Icon>{copied ? <Check /> : <Bot />}</Button.Icon>
-        {copied ? 'AI context copied' : 'Copy for AI'}
+        {copied ? t('actions.aiContextCopied') : t('actions.copyForAi')}
       </Button.Root>
 
       <Button.Root variant="secondary" size="sm" onClick={() => downloadAiContext(slug)}>
         <Button.Icon>
           <Download />
         </Button.Icon>
-        Download AI Context
+        {t('actions.downloadAiContext')}
       </Button.Root>
     </div>
   );

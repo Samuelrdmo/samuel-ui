@@ -6,7 +6,7 @@ const Root = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
     <div
       ref={ref}
       className={cn(
-        'flex flex-col rounded-md border border-border bg-surface-elevated transition-colors duration-150',
+        'flex flex-col rounded-none border border-border bg-surface-elevated transition-colors duration-150',
         className
       )}
       {...props}

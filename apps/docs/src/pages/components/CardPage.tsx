@@ -1,9 +1,13 @@
-import { Button, Card } from '@samuel-ui/react';
+import { Trans, useTranslation } from 'react-i18next';
+import { Button, Card, Skeleton } from '@samuel-ui/react';
 import { Breadcrumb } from '../../components/docs/Breadcrumb';
 import { ComponentPageActions } from '../../components/docs/ComponentPageActions';
 import { Section } from '../../components/docs/Section';
+import { SubLabel } from '../../components/docs/SubLabel';
+import { ExamplesSurface } from '../../components/docs/ExamplesSurface';
 import { CodeBlock } from '../../components/CodeBlock';
 import { CompositionTree } from '../../components/docs/CompositionTree';
+import { PropsTable } from '../../components/docs/PropsTable';
 import { figmaLinks } from '../../lib/figmaLinks';
 
 const previewCode = `<Card.Root>
@@ -15,28 +19,93 @@ const previewCode = `<Card.Root>
   <Card.Footer>...</Card.Footer>
 </Card.Root>`;
 
+const codeTag = <code className="font-mono text-xs" />;
+
 export function CardPage() {
+  const { t } = useTranslation();
+
   return (
     <div>
-      <Breadcrumb trail={['Components', 'Card']} />
-      <h1 className="mb-2 text-3xl font-semibold tracking-[-0.01em] text-fg-primary">Card</h1>
-      <p className="mb-6 max-w-xl text-base text-fg-secondary">
-        A flexible surface container recomposed for different situations — never a one-off "ProjectCard".
-      </p>
+      <Breadcrumb trail={[t('breadcrumb.components'), t('components.card.title')]} />
+      <h1 className="mb-2 text-3xl font-semibold tracking-[-0.01em] text-fg-primary">{t('components.card.title')}</h1>
+      <p className="mb-6 max-w-xl text-base text-fg-secondary">{t('components.card.description')}</p>
 
       <div className="mb-14">
         <ComponentPageActions slug="card" figmaUrl={figmaLinks.card} />
       </div>
 
-      <Section title="Code">
-        <CodeBlock code={previewCode} />
+      <Section title={t('sections.examples')}>
+        <ExamplesSurface>
+          <SubLabel>{t('components.card.sameApiTitle')}</SubLabel>
+          <div className="grid gap-5 sm:grid-cols-2">
+            <Card.Root>
+              <Card.Header>
+                <Card.Title>{t('components.card.projectCardTitle')}</Card.Title>
+                <Card.Description>{t('components.card.projectCardDescription')}</Card.Description>
+              </Card.Header>
+              <Card.Content>
+                <p className="text-sm text-fg-secondary">{t('components.card.projectCardBody')}</p>
+              </Card.Content>
+              <Card.Footer>
+                <Button.Root size="sm" variant="outline">
+                  {t('components.card.projectCardOpen')}
+                </Button.Root>
+              </Card.Footer>
+            </Card.Root>
+
+            <Card.Root>
+              <Card.Header>
+                <Card.Title>{t('components.card.profileCardTitle')}</Card.Title>
+                <Card.Description>{t('components.card.profileCardDescription')}</Card.Description>
+              </Card.Header>
+              <Card.Content>
+                <p className="text-sm text-fg-secondary">{t('components.card.profileCardBody')}</p>
+              </Card.Content>
+            </Card.Root>
+
+            <Card.Root>
+              <Card.Header>
+                <Card.Title>{t('components.card.docsCardTitle')}</Card.Title>
+                <Card.Description>{t('components.card.docsCardDescription')}</Card.Description>
+              </Card.Header>
+              <Card.Content>
+                <p className="text-sm text-fg-secondary">{t('components.card.docsCardBody')}</p>
+              </Card.Content>
+            </Card.Root>
+
+            <Card.Root>
+              <Card.Header>
+                <Card.Title>{t('components.card.metricCardTitle')}</Card.Title>
+                <Card.Description>{t('components.card.metricCardDescription')}</Card.Description>
+              </Card.Header>
+              <Card.Content>
+                <p className="text-sm text-fg-secondary">{t('components.card.metricCardBody')}</p>
+              </Card.Content>
+            </Card.Root>
+          </div>
+
+          <div className="mt-10">
+            <SubLabel>{t('sections.states')}</SubLabel>
+            <div className="flex flex-wrap items-center gap-8">
+              <Card.Root style={{ width: 260 }}>
+                <Card.Header>
+                  <Skeleton className="h-5 w-32" />
+                  <Skeleton className="mt-2 h-4 w-40" />
+                </Card.Header>
+                <Card.Content>
+                  <Skeleton className="h-4 w-full" />
+                </Card.Content>
+              </Card.Root>
+            </div>
+          </div>
+        </ExamplesSurface>
       </Section>
 
-      <Section title="Usage">
+      <Section title={t('sections.usage')}>
         <CodeBlock code={`import { Card } from '@samuel-ui/react';\n\n${previewCode}`} />
       </Section>
 
-      <Section title="Composition">
+      <Section title={t('sections.composition')}>
         <CompositionTree
           lines={[
             'Card.Root',
@@ -49,67 +118,24 @@ export function CardPage() {
         />
       </Section>
 
-      <Section title="Same API, four use cases">
-        <div className="grid gap-5 sm:grid-cols-2">
-          <Card.Root>
-            <Card.Header>
-              <Card.Title>Design Systems</Card.Title>
-              <Card.Description>Project card</Card.Description>
-            </Card.Header>
-            <Card.Content>
-              <p className="text-sm text-fg-secondary">Figma → tokens → React, shipped to production.</p>
-            </Card.Content>
-            <Card.Footer>
-              <Button.Root size="sm" variant="outline">
-                Open
-              </Button.Root>
-            </Card.Footer>
-          </Card.Root>
-
-          <Card.Root>
-            <Card.Header>
-              <Card.Title>Samuel Ramos</Card.Title>
-              <Card.Description>Profile card</Card.Description>
-            </Card.Header>
-            <Card.Content>
-              <p className="text-sm text-fg-secondary">Design Engineer — Design Systems & UI Engineering.</p>
-            </Card.Content>
-          </Card.Root>
-
-          <Card.Root>
-            <Card.Header>
-              <Card.Title>Getting Started</Card.Title>
-              <Card.Description>Documentation card</Card.Description>
-            </Card.Header>
-            <Card.Content>
-              <p className="text-sm text-fg-secondary">Install, import tokens, render your first component.</p>
-            </Card.Content>
-          </Card.Root>
-
-          <Card.Root>
-            <Card.Header>
-              <Card.Title>128ms</Card.Title>
-              <Card.Description>Metric card</Card.Description>
-            </Card.Header>
-            <Card.Content>
-              <p className="text-sm text-fg-secondary">Median interaction latency, last 7 days.</p>
-            </Card.Content>
-          </Card.Root>
-        </div>
-      </Section>
-
-      <Section title="Accessibility">
+      <Section title={t('sections.accessibility')}>
         <ul className="list-disc space-y-1.5 pl-5 text-sm text-fg-secondary">
-          <li><code className="font-mono text-xs">Card.Title</code> renders an <code className="font-mono text-xs">&lt;h3&gt;</code> — keep heading order sane on the page around it.</li>
-          <li>No implicit interactivity — wrap the whole card in a link/button yourself if the entire surface should be clickable.</li>
+          <li><Trans i18nKey="components.card.a11y.heading" components={{ code: codeTag }} /></li>
+          <li><Trans i18nKey="components.card.a11y.interactive" components={{ code: codeTag }} /></li>
         </ul>
       </Section>
 
-      <Section title="Design">
+      <Section title={t('sections.properties')}>
+        <PropsTable
+          rows={[
+            { prop: 'className', type: 'string', description: t('components.card.api.className') },
+          ]}
+        />
+      </Section>
+
+      <Section title={t('sections.design')}>
         <p className="text-sm text-fg-secondary">
-          {figmaLinks.card
-            ? 'Open the component in Figma using the action above.'
-            : 'Not yet connected to Figma — the link will appear here once the component is published in the file.'}
+          {figmaLinks.card ? t('design.connected') : t('design.notConnected')}
         </p>
       </Section>
     </div>
