@@ -2,6 +2,7 @@
   "name": "samuel-ui",
   "private": true,
   "version": "0.1.0",
+  "type": "module",
   "description": "Samuel UI — a Design System that is also a React library, technical documentation, AI-ready docs, and a UI Engineering showcase.",
   "license": "MIT",
   "scripts": {
@@ -11,9 +12,23 @@
     "build:docs": "pnpm --filter @samuel-ui/docs build",
     "build:storybook": "pnpm --filter @samuel-ui/storybook build-storybook",
     "typecheck": "pnpm -r typecheck",
-    "test": "pnpm -r test"
+    "test": "pnpm -r test",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "validate": "pnpm lint && pnpm typecheck && pnpm test"
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^15.15.0",
+    "prettier": "^3.9.6",
+    "typescript-eslint": "^8.67.0"
   }
 }

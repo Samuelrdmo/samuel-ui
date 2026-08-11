@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="'Inter Tight', 'Inter', sans-serif">
+  <rect width="1200" height="630" fill="#000000"/>
+
+  <!-- Same rail language as the site: two vertical lines framing the content -->
+  <g stroke="rgba(255,255,255,0.10)" stroke-width="1">
+    <line x1="100" y1="0" x2="100" y2="630"/>
+    <line x1="1100" y1="0" x2="1100" y2="630"/>
+    <line x1="100" y1="120" x2="1100" y2="120"/>
+    <line x1="100" y1="510" x2="1100" y2="510"/>
+  </g>
+
+  <rect x="152" y="168" width="204" height="34" fill="none" stroke="rgba(255,255,255,0.14)"/>
+  <text x="170" y="191" fill="#00ff4e" font-family="'JetBrains Mono', monospace" font-size="14" letter-spacing="2.6">SAMUEL UI</text>
+
+  <text x="152" y="300" fill="#f4f4f4" font-size="76" font-weight="800" letter-spacing="-2.6">Visual decisions,</text>
+  <text x="152" y="380" fill="#f4f4f4" font-size="76" font-weight="800" letter-spacing="-2.6">organized as a system.</text>
+
+  <text x="152" y="440" fill="#a6a6a6" font-size="24">Foundations, tokens, components and documentation in one base.</text>
+
+  <g font-family="'JetBrains Mono', monospace" font-size="15" fill="#7a7a7a" letter-spacing="1.6">
+    <text x="152" y="565">FOUNDATIONS</text>
+    <text x="330" y="565">TOKENS</text>
+    <text x="460" y="565">COMPONENTS</text>
+    <text x="640" y="565">PATTERNS</text>
+    <text x="790" y="565">DOCS</text>
+  </g>
+  <rect x="152" y="583" width="60" height="3" fill="#00ff4e"/>
+</svg>

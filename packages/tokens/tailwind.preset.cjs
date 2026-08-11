@@ -46,6 +46,14 @@ module.exports = {
         body: 'var(--font-body)',
         mono: 'var(--font-mono)',
       },
+      /**
+       * DS-GUARD: every key here points at a CSS variable, including `none`.
+       * `rounded-none` therefore compiles to `border-radius: var(--radius-none)`
+       * rather than a literal `0`, which is what makes radius a real token the
+       * docs can read back and a theme could one day change. Replacing these
+       * with literal values ("it's just 0") breaks that contract silently — the
+       * rendered output looks identical until someone retunes the scale.
+       */
       borderRadius: {
         none: 'var(--radius-none)',
         xs: 'var(--radius-xs)',

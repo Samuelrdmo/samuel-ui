@@ -8,7 +8,6 @@ import { ExamplesSurface } from '../../components/docs/ExamplesSurface';
 import { CodeBlock } from '../../components/CodeBlock';
 import { CompositionTree } from '../../components/docs/CompositionTree';
 import { PropsTable } from '../../components/docs/PropsTable';
-import { figmaLinks } from '../../lib/figmaLinks';
 
 const previewCode = `<Card.Root>
   <Card.Header>
@@ -31,7 +30,7 @@ export function CardPage() {
       <p className="mb-6 max-w-xl text-base text-fg-secondary">{t('components.card.description')}</p>
 
       <div className="mb-14">
-        <ComponentPageActions slug="card" figmaUrl={figmaLinks.card} />
+        <ComponentPageActions slug="card" />
       </div>
 
       <Section title={t('sections.examples')}>
@@ -131,12 +130,6 @@ export function CardPage() {
             { prop: 'className', type: 'string', description: t('components.card.api.className') },
           ]}
         />
-      </Section>
-
-      <Section title={t('sections.design')}>
-        <p className="text-sm text-fg-secondary">
-          {figmaLinks.card ? t('design.connected') : t('design.notConnected')}
-        </p>
       </Section>
     </div>
   );

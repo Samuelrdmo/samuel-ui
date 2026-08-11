@@ -8,7 +8,6 @@ import { ExamplesSurface } from '../../components/docs/ExamplesSurface';
 import { CodeBlock } from '../../components/CodeBlock';
 import { CompositionTree } from '../../components/docs/CompositionTree';
 import { PropsTable } from '../../components/docs/PropsTable';
-import { figmaLinks } from '../../lib/figmaLinks';
 
 const previewCode = `<Select.Root onValueChange={setRole}>
   <Select.Trigger>
@@ -32,7 +31,7 @@ export function SelectPage() {
       <p className="mb-6 max-w-xl text-base text-fg-secondary">{t('components.select.description')}</p>
 
       <div className="mb-14">
-        <ComponentPageActions slug="select" figmaUrl={figmaLinks.select} />
+        <ComponentPageActions slug="select" />
       </div>
 
       <Section title={t('sections.examples')}>
@@ -110,12 +109,6 @@ export function SelectPage() {
             { prop: 'disabled', type: 'boolean', default: 'false', description: t('components.select.api.disabled') },
           ]}
         />
-      </Section>
-
-      <Section title={t('sections.design')}>
-        <p className="text-sm text-fg-secondary">
-          {figmaLinks.select ? t('design.connected') : t('design.notConnected')}
-        </p>
       </Section>
     </div>
   );

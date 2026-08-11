@@ -42,6 +42,12 @@ const Content = forwardRef<
       sideOffset={6}
       className={cn(
         'z-50 overflow-hidden rounded-none border border-border bg-surface-elevated shadow-md animate-su-scale-in',
+        /**
+         * DS-GUARD: the width match is conditional because Radix only publishes
+         * --radix-select-trigger-width when positioning is `popper`. Applying it
+         * unconditionally leaves the var undefined under `item-aligned` and the
+         * panel collapses to zero width. Keep the guard if the default changes.
+         */
         position === 'popper' && 'w-[var(--radix-select-trigger-width)]',
         className
       )}

@@ -31,7 +31,7 @@ export const ProjectCard: Story = {
     <Card.Root style={{ width: 320 }}>
       <Card.Header>
         <Card.Title>Design Systems</Card.Title>
-        <Card.Description>Figma → tokens → React.</Card.Description>
+        <Card.Description>Tokens → React.</Card.Description>
       </Card.Header>
       <Card.Footer>
         <Button.Root variant="outline" size="sm">

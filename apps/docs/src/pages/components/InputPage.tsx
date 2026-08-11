@@ -8,7 +8,6 @@ import { ExamplesSurface } from '../../components/docs/ExamplesSurface';
 import { CodeBlock } from '../../components/CodeBlock';
 import { CompositionTree } from '../../components/docs/CompositionTree';
 import { PropsTable } from '../../components/docs/PropsTable';
-import { figmaLinks } from '../../lib/figmaLinks';
 
 const previewCode = `<Input.Root>
   <Input.Label>Email</Input.Label>
@@ -34,7 +33,7 @@ export function InputPage() {
       <p className="mb-6 max-w-xl text-base text-fg-secondary">{t('components.input.description')}</p>
 
       <div className="mb-14">
-        <ComponentPageActions slug="input" figmaUrl={figmaLinks.input} />
+        <ComponentPageActions slug="input" />
       </div>
 
       <Section title={t('sections.examples')}>
@@ -112,12 +111,6 @@ export function InputPage() {
             { prop: 'disabled', type: 'boolean', default: 'false', description: t('components.input.api.disabled') },
           ]}
         />
-      </Section>
-
-      <Section title={t('sections.design')}>
-        <p className="text-sm text-fg-secondary">
-          {figmaLinks.input ? t('design.connected') : t('design.notConnected')}
-        </p>
       </Section>
     </div>
   );

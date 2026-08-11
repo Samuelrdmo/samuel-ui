@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Figma, Github, Menu } from 'lucide-react';
+import { Github, Menu } from 'lucide-react';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { MobileNav } from './MobileNav';
@@ -39,13 +39,6 @@ export function Header() {
           <a href={EXTERNAL_LINKS.github} target="_blank" rel="noreferrer" className="transition-colors hover:text-fg-primary">
             {t('header.github')}
           </a>
-          <span
-            className="flex cursor-not-allowed items-center gap-1.5 text-fg-disabled"
-            title={t('header.figmaTooltip')}
-          >
-            <Figma className="size-3.5" aria-hidden />
-            {t('header.figma')}
-          </span>
         </nav>
 
         <div className="ml-auto flex shrink-0 items-center gap-1.5 sm:gap-3">

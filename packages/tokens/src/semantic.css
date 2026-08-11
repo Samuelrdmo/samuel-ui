@@ -66,6 +66,13 @@
   --font-mono: var(--su-font-mono);
 }
 
+/**
+ * DS-GUARD: this block must stay AFTER the dark block above. `:root` and
+ * `[data-theme='light']` have identical specificity (0,1,0), so nothing but
+ * source order decides the winner on `<html data-theme="light">`. Moving this
+ * block up, or sorting the file alphabetically, silently kills the light theme
+ * everywhere while leaving both blocks looking correct in isolation.
+ */
 [data-theme='light'] {
   color-scheme: light;
 

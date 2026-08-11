@@ -1,17 +1,11 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Bot, Check, Code2, Download, Figma } from 'lucide-react';
+import { Bot, Check, Code2, Download } from 'lucide-react';
 import { Button } from '@samuel-ui/react';
 import { EXTERNAL_LINKS } from '../../lib/links';
 import { copyAiContext, downloadAiContext, type ComponentSlug } from '../../lib/aiContext';
 
-export function ComponentPageActions({
-  slug,
-  figmaUrl,
-}: {
-  slug: ComponentSlug;
-  figmaUrl: string | null;
-}) {
+export function ComponentPageActions({ slug }: { slug: ComponentSlug }) {
   const [copied, setCopied] = useState(false);
   const { t } = useTranslation();
 
@@ -23,24 +17,6 @@ export function ComponentPageActions({
 
   return (
     <div className="flex flex-wrap items-center gap-2">
-      {figmaUrl ? (
-        <a href={figmaUrl} target="_blank" rel="noreferrer">
-          <Button.Root variant="outline" size="sm">
-            <Button.Icon>
-              <Figma />
-            </Button.Icon>
-            {t('actions.openInFigma')}
-          </Button.Root>
-        </a>
-      ) : (
-        <Button.Root variant="outline" size="sm" disabled title={t('header.figmaTooltip') as string}>
-          <Button.Icon>
-            <Figma />
-          </Button.Icon>
-          {t('actions.openInFigma')}
-        </Button.Root>
-      )}
-
       <a href={`${EXTERNAL_LINKS.storybook}/?path=/story/${slug}`} target="_blank" rel="noreferrer">
         <Button.Root variant="outline" size="sm">
           {t('actions.openInStorybook')}

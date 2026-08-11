@@ -17,17 +17,32 @@ const primaryClipLg =
   '[clip-path:polygon(0_0,calc(100%_-_12px)_0,100%_12px,100%_100%,12px_100%,0_calc(100%_-_12px))]';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none font-mono text-[13px] font-medium uppercase tracking-[0.1em] transition-colors duration-150 focus-visible:outline-none focus-visible:shadow-focus disabled:pointer-events-none disabled:opacity-40',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none font-mono text-[13px] font-medium uppercase tracking-[0.1em] transition-colors duration-150 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-40',
   {
     variants: {
+      /**
+       * Each variant carries its own focus ring rather than inheriting one
+       * from the base: primary needs a different technique, and tailwind-merge
+       * cannot dedupe `shadow-focus` against an arbitrary shadow (it reads the
+       * custom key as a shadow *color*), so a shared base ring would leave two
+       * competing classes on the element and let stylesheet order decide.
+       */
       variant: {
+        /**
+         * Inset, unlike every other variant. clip-path clips the element's
+         * whole rendering, so the usual outer ring would be cut away and
+         * keyboard focus would be invisible. An inset ring paints inside the
+         * padding box and survives the cut.
+         */
         primary:
-          'bg-action-primary text-action-primary-foreground hover:bg-action-primary-hover active:bg-action-primary-active',
+          'bg-action-primary text-action-primary-foreground hover:bg-action-primary-hover active:bg-action-primary-active focus-visible:shadow-[inset_0_0_0_2px_var(--action-primary-foreground)]',
         secondary:
-          'bg-surface-elevated text-fg-primary border border-border hover:border-border-brand hover:text-accent hover:bg-surface-hover',
-        ghost: 'bg-transparent text-accent px-0 py-2 border-b border-transparent hover:border-border-brand',
-        outline: 'bg-transparent text-fg-primary border border-border hover:border-border-brand hover:text-accent',
-        destructive: 'bg-danger text-danger-foreground hover:opacity-90',
+          'bg-surface-elevated text-fg-primary border border-border hover:border-border-brand hover:text-accent hover:bg-surface-hover focus-visible:shadow-focus',
+        ghost:
+          'bg-transparent text-accent px-0 py-2 border-b border-transparent hover:border-border-brand focus-visible:shadow-focus',
+        outline:
+          'bg-transparent text-fg-primary border border-border hover:border-border-brand hover:text-accent focus-visible:shadow-focus',
+        destructive: 'bg-danger text-danger-foreground hover:opacity-90 focus-visible:shadow-focus',
       },
       size: {
         sm: 'h-9 px-4 py-2 text-xs',
@@ -64,6 +79,14 @@ const Root = forwardRef<HTMLButtonElement, ButtonRootProps>(
         aria-busy={loading || undefined}
         {...props}
       >
+        {/*
+          DS-GUARD: children stay mounted while loading — the spinner is added
+          alongside the label, never swapped for it. Replacing the content
+          collapses the button to the spinner's width mid-interaction and shifts
+          whatever sits next to it. `aria-busy` above is what communicates the
+          state; the visible label is not the mechanism.
+          Covered by Button.test.tsx > loading > "keeps the label mounted".
+        */}
         {loading && <Loader2 className="size-4 animate-spin" aria-hidden />}
         {children}
       </button>
