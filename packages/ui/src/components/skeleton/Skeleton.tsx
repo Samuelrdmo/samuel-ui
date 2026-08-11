@@ -5,6 +5,10 @@ import { cn } from '../../lib/cn';
  * Loading placeholder. Square by default, like every other surface in this
  * system — pass className="rounded-full" for the rare circular case (an
  * avatar), it is never the default.
+ *
+ * DS-GUARD: `{...props}` must stay after `role`/`aria-label`. That ordering is
+ * what lets a consumer override the English default with their own translated
+ * label. Hoisting the spread above them silently locks every app into "Loading".
  */
 const Skeleton = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (

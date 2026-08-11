@@ -1,5 +1,8 @@
 <!doctype html>
-<html lang="en">
+<!-- lang is a placeholder: src/i18n/index.ts rewrites it from the detected
+     locale on boot and on every language change. Kept as en-US so the document
+     is never served without a language at all. -->
+<html lang="en-US">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +11,30 @@
       name="description"
       content="Explore the visual foundations, tokens, components and documentation behind Samuel UI, an independent design system built in React."
     />
+    <meta name="author" content="Samuel Ramos" />
+    <!-- Both themes are declared so the browser paints native UI (scrollbars,
+         form controls) to match before the theme script runs. -->
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#000000" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Samuel UI" />
+    <meta property="og:title" content="Samuel UI | An independent design system for consistent interfaces" />
+    <meta
+      property="og:description"
+      content="Foundations, tokens, components and documentation in a single base for building consistent, scalable interfaces."
+    />
+    <meta property="og:image" content="/og-image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Samuel UI" />
+    <meta
+      name="twitter:description"
+      content="Foundations, tokens, components and documentation in a single base for building consistent, scalable interfaces."
+    />
+    <meta name="twitter:image" content="/og-image.svg" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

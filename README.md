@@ -2,7 +2,7 @@
 
 A React design system that doubles as its own documentation — components, tokens, Storybook and AI-ready context, all sourced from one place.
 
-Samuel UI is not just a component library. It is simultaneously a design system, a React library, technical documentation, a UI Engineering showcase, a Figma-to-code bridge, and documentation written to be consumed efficiently by an LLM.
+Samuel UI is not just a component library. It is simultaneously a design system, a React library, technical documentation, a UI Engineering showcase, and documentation written to be consumed efficiently by an LLM.
 
 **V1 ships exactly five components** — Button, Input, Select, Modal, Card — built with the composition, accessibility and token discipline a much larger system would demand. Quality over quantity.
 
@@ -10,7 +10,6 @@ Samuel UI is not just a component library. It is simultaneously a design system,
 
 - Documentation — `pnpm dev:docs` (see [Development](#development))
 - Storybook — `pnpm dev:storybook`
-- Figma — not connected yet, wired per-component in [`figmaLinks.ts`](apps/docs/src/lib/figmaLinks.ts)
 - npm — not published yet (`@samuel-ui/react`)
 
 ## Features
@@ -114,12 +113,31 @@ pnpm install          # install everything
 pnpm dev:docs         # docs site → http://localhost:5183
 pnpm dev:storybook    # storybook → http://localhost:6006
 pnpm build:ui         # typecheck + bundle @samuel-ui/react
-pnpm typecheck        # typecheck every package
+```
+
+Checks, all of which also run in CI:
+
+```bash
+pnpm validate         # lint + typecheck + test, the pre-PR command
+pnpm lint             # ESLint, with jsx-a11y rules as errors
+pnpm typecheck        # tsc --noEmit across every package
+pnpm test             # Vitest + Testing Library
+pnpm format           # Prettier
+```
+
+The docs site reads `VITE_STORYBOOK_URL` for the "Open in Storybook" action. Unset, it falls back to the local dev port — see [`apps/docs/.env.example`](apps/docs/.env.example).
+
+### Reading the code
+
+Implementations that look redundant or over-engineered but exist for a specific reason are marked with a `DS-GUARD:` comment explaining what breaks if they are "simplified". Most are backed by a test. Before refactoring:
+
+```bash
+grep -rn "DS-GUARD" packages apps --include=*.ts --include=*.tsx --include=*.css
 ```
 
 ## Contributing
 
-This is currently a solo portfolio/open-source project. Issues and PRs are welcome once the repository is public — please keep changes scoped to one component or one doc section at a time, and match the existing token/composition conventions.
+This is currently a solo portfolio/open-source project. Issues and PRs are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md) for the setup, the checks, and the rules that matter here. Changes are logged in [CHANGELOG.md](CHANGELOG.md).
 
 ## License
 

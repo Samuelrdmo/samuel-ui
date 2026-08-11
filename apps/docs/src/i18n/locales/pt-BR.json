@@ -3,8 +3,6 @@
     "documentation": "Documentação",
     "storybook": "Storybook",
     "github": "GitHub",
-    "figma": "Figma",
-    "figmaTooltip": "Os links do Figma são configurados por componente",
     "openNav": "Abrir navegação",
     "closeNav": "Fechar navegação",
     "githubAria": "GitHub"
@@ -41,94 +39,146 @@
     }
   },
   "breadcrumb": {
-    "components": "Componentes"
+    "components": "Componentes",
+    "label": "Trilha de navegação"
   },
   "home": {
     "meta": {
-      "title": "Samuel UI | Design system autoral para interfaces consistentes",
-      "description": "Conheça os fundamentos visuais, tokens, componentes e a documentação do Samuel UI, um design system autoral construído em React."
+      "title": "Samuel UI | Design system autoral",
+      "description": "Fundamentos, tokens, componentes e documentação reunidos em uma base única para criar interfaces consistentes e escaláveis."
     },
-    "eyebrow": "Design system autoral",
-    "title": "Um design system autoral para interfaces consistentes.",
-    "description": "O Samuel UI reúne fundamentos visuais, tokens, componentes e padrões de uso em uma base criada para organizar decisões, documentar interfaces e aproximar design e código.",
-    "ctaDocumentation": "Explorar documentação",
-    "ctaGithub": "Ver no GitHub",
-    "metrics": [
-      { "value": "05", "label": "componentes" },
-      { "value": "05", "label": "fundamentos" },
-      { "value": "02", "label": "temas" }
-    ],
-    "blueprint": {
-      "ariaLabel": "Mapa das cinco camadas do Samuel UI",
-      "label": "system.map",
-      "status": "em evolução",
-      "footer": "tokens semânticos ativos"
+    "hero": {
+      "eyebrow": "Samuel UI",
+      "title": "Decisões visuais,\norganizadas em sistema.",
+      "description": "Samuel UI é um design system autoral que reúne fundamentos, tokens, componentes e documentação em uma base única para criar interfaces consistentes e escaláveis.",
+      "ctaDocs": "Explorar documentação",
+      "ctaGithub": "Ver no GitHub",
+      "spineLabel": "Camadas do Samuel UI, do fundamento à documentação"
     },
     "about": {
       "eyebrow": "Sobre o Samuel UI",
-      "title": "Decisões visuais viram estrutura.",
-      "description": "O Samuel UI é um projeto autoral criado para explorar a construção de interfaces consistentes a partir de uma base visual e técnica bem definida. Ele registra o raciocínio por trás do sistema, organiza padrões de uso e transforma componentes em peças reutilizáveis no código.",
-      "typeLabel": "Projeto",
-      "typeValue": "Design system",
-      "authorLabel": "Criado por",
-      "authorValue": "Samuel Ramos"
-    },
-    "capabilities": {
-      "eyebrow": "O que o projeto demonstra",
-      "title": "Sistema é tanto decisão quanto componente.",
-      "description": "Cada parte foi pensada para mostrar o processo inteiro, da direção visual à orientação de uso.",
-      "tagsLabel": "Tópicos de {{title}}",
-      "items": [
+      "title": "Um sistema pensado\ncomo produto.",
+      "description": "O Samuel UI organiza decisões visuais em uma estrutura reutilizável. Fundamentos, componentes e documentação evoluem juntos para manter a interface clara, previsível e fácil de manter.",
+      "meta": [
         {
-          "title": "Design System",
-          "description": "Fundamentos, tokens, componentes, estados e variantes organizados como uma linguagem visual coerente.",
-          "tags": ["tokens", "componentes", "acessibilidade"]
+          "label": "Projeto",
+          "value": "Design system"
         },
         {
-          "title": "Design Ops",
-          "description": "Documentação, regras de uso e uma estrutura previsível para o sistema crescer sem perder clareza.",
-          "tags": ["governança", "padrões", "escala"]
+          "label": "Escopo",
+          "value": "Design + Front-end"
         },
         {
-          "title": "Front-end",
-          "description": "Componentes em React com composição, estados e APIs pensadas para uso real.",
-          "tags": ["React", "APIs", "composição"]
+          "label": "Base",
+          "value": "React + TypeScript"
         },
         {
-          "title": "Documentação",
-          "description": "Exemplos, propriedades e acessibilidade tratados como parte do produto, não como uma etapa posterior.",
-          "tags": ["uso", "propriedades", "exemplos"]
+          "label": "Autor",
+          "value": "Samuel Ramos"
         }
       ]
     },
-    "layers": {
-      "eyebrow": "Como o sistema é construído",
-      "title": "Cinco camadas, uma linguagem.",
-      "description": "O sistema parte de decisões visuais simples e adiciona significado até chegar a componentes documentados e prontos para compor interfaces reais.",
+    "facets": {
+      "eyebrow": "O que o projeto demonstra",
+      "title": "Um sistema visto\npor diferentes camadas.",
+      "description": "O projeto reúne estrutura visual, implementação e documentação em uma mesma base.",
       "items": [
-        { "title": "Fundamentos", "description": "Cores, tipografia, espaçamento, raio, bordas e elevação formam a base visual.", "artifact": "foundation.*" },
-        { "title": "Tokens", "description": "Valores primitivos e semânticos conectam identidade, tema e implementação.", "artifact": "semantic.*" },
-        { "title": "Componentes", "description": "Elementos de interface reúnem variantes, tamanhos, estados e composição.", "artifact": "component.*" },
-        { "title": "Padrões", "description": "Combinações recorrentes ajudam a resolver fluxos sem reinventar decisões.", "artifact": "pattern.*" },
-        { "title": "Documentação", "description": "Uso, propriedades e acessibilidade deixam cada escolha clara e aplicável.", "artifact": "docs.*" }
+        {
+          "title": "Design System",
+          "description": "Fundamentos, tokens, componentes e estados organizados em uma linguagem visual única."
+        },
+        {
+          "title": "Design Ops",
+          "description": "Regras, documentação e padrões que tornam o sistema mais fácil de manter e evoluir."
+        },
+        {
+          "title": "Front-end",
+          "description": "Componentes reutilizáveis em React, com APIs previsíveis e estados consistentes."
+        },
+        {
+          "title": "Documentação",
+          "description": "Uso, propriedades e acessibilidade tratados como parte do próprio sistema."
+        }
       ]
     },
-    "purpose": {
-      "eyebrow": "Por que esse projeto existe",
-      "title": "Transformar decisões visuais em algo que possa ser usado e evoluído.",
-      "description": "O Samuel UI nasceu para mostrar o raciocínio por trás de uma interface consistente. Cada camada registra o que muda, o que permanece e como uma escolha visual chega ao produto.",
-      "principles": [
-        { "label": "Visual", "detail": "Uma base que torna a hierarquia intencional." },
-        { "label": "Sistema", "detail": "Tokens e padrões que reduzem decisões repetidas." },
-        { "label": "Implementação", "detail": "APIs previsíveis que preservam a lógica visual." }
+    "structure": {
+      "eyebrow": "Estrutura",
+      "title": "Do fundamento\nao componente.",
+      "description": "Cada camada adiciona contexto à anterior até transformar decisões visuais em interfaces reutilizáveis.",
+      "items": [
+        {
+          "title": "Fundamentos",
+          "description": "Cor, tipografia, espaçamento, raio e elevação.",
+          "sample": "color / type / space"
+        },
+        {
+          "title": "Tokens",
+          "description": "Valores visuais recebem nomes e significado dentro do sistema.",
+          "sample": "color.action.primary"
+        },
+        {
+          "title": "Componentes",
+          "description": "Tokens passam a compor elementos reutilizáveis da interface.",
+          "sample": "Button / Input / Select"
+        },
+        {
+          "title": "Padrões",
+          "description": "Componentes se combinam para resolver situações recorrentes.",
+          "sample": "Form / Feedback"
+        },
+        {
+          "title": "Documentação",
+          "description": "Uso, estados, propriedades e acessibilidade tornam cada escolha clara.",
+          "sample": "Usage / Props / A11y"
+        }
+      ]
+    },
+    "anatomy": {
+      "eyebrow": "Anatomia de um componente",
+      "title": "Um componente.\nVárias decisões.",
+      "description": "Cada componente combina fundamentos, tokens, comportamento e acessibilidade em uma única interface.",
+      "figureLabel": "Anatomia do componente Button e os tokens que o formam",
+      "buttonLabel": "Ação principal",
+      "parts": [
+        {
+          "label": "Tipografia",
+          "value": "--font-mono · 14px"
+        },
+        {
+          "label": "Espaçamento",
+          "value": "32px · 8px"
+        },
+        {
+          "label": "Ícone",
+          "value": "16px"
+        },
+        {
+          "label": "Cor",
+          "value": "--action-primary"
+        },
+        {
+          "label": "Raio",
+          "value": "--radius-none"
+        },
+        {
+          "label": "Corte",
+          "value": "clip-path · 12px"
+        }
       ],
-      "output": "design + documentação + código = sistema"
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "disabled"
+      ],
+      "statesLabel": "Estados do componente Button"
     },
     "finalCta": {
       "eyebrow": "Explore o sistema",
-      "title": "Veja como cada decisão chega a um componente.",
-      "description": "A documentação reúne estrutura, exemplos, estados, propriedades e orientações de acessibilidade para cada componente.",
-      "button": "Ver componentes"
+      "title": "Veja o sistema\nem funcionamento.",
+      "description": "Explore componentes, estados, propriedades e decisões documentadas no Samuel UI.",
+      "primary": "Ver componentes",
+      "secondary": "Ver fundamentos"
     }
   },
   "docs": {
@@ -253,21 +303,16 @@
     "states": "Estados",
     "errorState": "Estado de erro",
     "accessibility": "Acessibilidade",
-    "properties": "Propriedades",
-    "design": "Design"
+    "properties": "Propriedades"
   },
   "table": {
     "prop": "Prop",
     "type": "Tipo",
     "default": "Padrão",
-    "description": "Descrição"
-  },
-  "design": {
-    "connected": "Abra o componente no Figma usando a ação acima.",
-    "notConnected": "Ainda não conectado ao Figma. O link vai aparecer aqui assim que o componente for publicado no arquivo."
+    "description": "Descrição",
+    "label": "Propriedades do componente"
   },
   "actions": {
-    "openInFigma": "Abrir no Figma",
     "openInStorybook": "Abrir no Storybook",
     "viewSource": "Ver código-fonte",
     "copyForAi": "Copiar para IA",
@@ -280,7 +325,14 @@
     "button": {
       "title": "Button",
       "description": "Dispara uma ação ou evento, como enviar um formulário ou abrir um diálogo.",
-      "demo": { "small": "Pequeno", "medium": "Médio", "large": "Grande", "default": "Padrão", "disabled": "Desabilitado", "loading": "Carregando" },
+      "demo": {
+        "small": "Pequeno",
+        "medium": "Médio",
+        "large": "Grande",
+        "default": "Padrão",
+        "disabled": "Desabilitado",
+        "loading": "Carregando"
+      },
       "a11y": {
         "native": "Renderiza um elemento <code>button</code> nativo, então suporte a teclado e leitor de tela já vêm de graça.",
         "loading": "<code>loading</code> define <code>aria-busy</code> e desabilita o botão, mas nunca esconde o nome acessível dele.",
@@ -317,7 +369,11 @@
     "select": {
       "title": "Select",
       "description": "Uma seleção em dropdown acessível, construída sobre o Radix UI Select para navegação por teclado e gerenciamento de foco.",
-      "demo": { "default": "Padrão", "disabled": "Desabilitado", "researcherSoon": "Pesquisador (em breve)" },
+      "demo": {
+        "default": "Padrão",
+        "disabled": "Desabilitado",
+        "researcherSoon": "Pesquisador (em breve)"
+      },
       "a11y": {
         "keyboard": "Navegação por teclado (setas, busca por digitação, Home e End), gerenciamento de foco e papéis ARIA vêm todos do Radix UI Select, então nada disso é reimplementado aqui.",
         "value": "O trigger expõe o valor atual para leitores de tela via <code>Select.Value</code>.",
@@ -363,7 +419,7 @@
       "sameApiTitle": "Mesma API, quatro casos de uso",
       "projectCardTitle": "Design Systems",
       "projectCardDescription": "Card de projeto",
-      "projectCardBody": "Figma → tokens → React, publicado em produção.",
+      "projectCardBody": "Tokens, componentes e documentação publicados juntos.",
       "projectCardOpen": "Abrir",
       "profileCardTitle": "Samuel Ramos",
       "profileCardDescription": "Card de perfil",
@@ -382,5 +438,16 @@
         "className": "Combinado com as classes padrão do Card.Root. Nenhuma outra prop é exposta, a composição cobre o resto."
       }
     }
+  },
+  "a11y": {
+    "skipToContent": "Pular para o conteúdo"
+  },
+  "notFound": {
+    "metaTitle": "Página não encontrada | Samuel UI",
+    "title": "Esta página não existe.",
+    "description": "O endereço acessado não corresponde a nenhuma página da documentação. Talvez o link esteja desatualizado.",
+    "backHome": "Voltar para o início",
+    "explore": "Ou vá direto para",
+    "exploreLabel": "Seções da documentação"
   }
 }

@@ -8,8 +8,24 @@ const Trigger = DialogPrimitive.Trigger;
 
 const Content = forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & { hideCloseButton?: boolean }
->(({ className, children, hideCloseButton = false, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & {
+    hideCloseButton?: boolean;
+    /**
+     * Accessible name for the close button. Defaults to English because the
+     * library ships no translation layer; every consumer in another language
+     * must pass this, so it is a documented prop rather than a buried literal.
+     */
+    closeLabel?: string;
+  }
+>(({ className, children, hideCloseButton = false, closeLabel = 'Close', ...props }, ref) => (
+  /**
+   * DS-GUARD: Portal and Overlay are deliberately not exported as parts. Folding
+   * them into Content keeps the public surface to `Modal.Content` and makes it
+   * impossible to render a dialog without its overlay. Promoting them to
+   * `Modal.Portal` / `Modal.Overlay` would match Radix's own shape but breaks
+   * every existing call site and lets callers ship an un-dimmed, un-trapped
+   * dialog. The docs in packages/ai-context/modal.md describe this composition.
+   */
   <DialogPrimitive.Portal>
     <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-overlay animate-su-overlay-in" />
     <DialogPrimitive.Content
@@ -25,7 +41,7 @@ const Content = forwardRef<
       {!hideCloseButton && (
         <DialogPrimitive.Close
           className="absolute right-4 top-4 rounded-none text-fg-caption transition-colors hover:text-fg-primary focus-visible:outline-none focus-visible:shadow-focus"
-          aria-label="Close"
+          aria-label={closeLabel}
         >
           <X className="size-4" aria-hidden />
         </DialogPrimitive.Close>

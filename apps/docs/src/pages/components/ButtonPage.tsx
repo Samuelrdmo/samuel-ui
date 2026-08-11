@@ -9,7 +9,6 @@ import { ExamplesSurface } from '../../components/docs/ExamplesSurface';
 import { CodeBlock } from '../../components/CodeBlock';
 import { CompositionTree } from '../../components/docs/CompositionTree';
 import { PropsTable } from '../../components/docs/PropsTable';
-import { figmaLinks } from '../../lib/figmaLinks';
 
 const usageCode = `import { Button } from '@samuel-ui/react';
 
@@ -37,7 +36,7 @@ export function ButtonPage() {
       <p className="mb-6 max-w-xl text-base text-fg-secondary">{t('components.button.description')}</p>
 
       <div className="mb-14">
-        <ComponentPageActions slug="button" figmaUrl={figmaLinks.button} />
+        <ComponentPageActions slug="button" />
       </div>
 
       <Section title={t('sections.examples')}>
@@ -110,12 +109,6 @@ export function ButtonPage() {
             { prop: 'disabled', type: 'boolean', default: 'false', description: t('components.button.api.disabled') },
           ]}
         />
-      </Section>
-
-      <Section title={t('sections.design')}>
-        <p className="text-sm text-fg-secondary">
-          {figmaLinks.button ? t('design.connected') : t('design.notConnected')}
-        </p>
       </Section>
     </div>
   );

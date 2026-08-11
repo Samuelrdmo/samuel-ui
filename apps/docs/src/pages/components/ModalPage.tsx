@@ -9,7 +9,6 @@ import { ExamplesSurface } from '../../components/docs/ExamplesSurface';
 import { CodeBlock } from '../../components/CodeBlock';
 import { CompositionTree } from '../../components/docs/CompositionTree';
 import { PropsTable } from '../../components/docs/PropsTable';
-import { figmaLinks } from '../../lib/figmaLinks';
 
 const previewCode = `<Modal.Root>
   <Modal.Trigger asChild>
@@ -77,7 +76,7 @@ export function ModalPage() {
       <p className="mb-6 max-w-xl text-base text-fg-secondary">{t('components.modal.description')}</p>
 
       <div className="mb-14">
-        <ComponentPageActions slug="modal" figmaUrl={figmaLinks.modal} />
+        <ComponentPageActions slug="modal" />
       </div>
 
       <Section title={t('sections.examples')}>
@@ -204,12 +203,6 @@ export function ModalPage() {
             { prop: 'hideCloseButton', type: 'boolean', default: 'false', description: t('components.modal.api.hideCloseButton') },
           ]}
         />
-      </Section>
-
-      <Section title={t('sections.design')}>
-        <p className="text-sm text-fg-secondary">
-          {figmaLinks.modal ? t('design.connected') : t('design.notConnected')}
-        </p>
       </Section>
     </div>
   );

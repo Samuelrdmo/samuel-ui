@@ -24,6 +24,10 @@ Header.displayName = 'Card.Header';
 
 const Title = forwardRef<HTMLHeadingElement, HTMLAttributes<HTMLHeadingElement>>(
   ({ className, ...props }, ref) => (
+    /* Content arrives through {...props}; the rule cannot see across a
+       component boundary. The "always give Card.Title content" rule for
+       consumers lives in packages/ai-context/card.md. */
+    // eslint-disable-next-line jsx-a11y/heading-has-content
     <h3
       ref={ref}
       className={cn('font-heading text-base font-semibold tracking-[-0.01em] text-fg-primary', className)}

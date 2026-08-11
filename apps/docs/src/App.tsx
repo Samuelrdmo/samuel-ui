@@ -14,6 +14,7 @@ import { InputPage } from './pages/components/InputPage';
 import { SelectPage } from './pages/components/SelectPage';
 import { ModalPage } from './pages/components/ModalPage';
 import { CardPage } from './pages/components/CardPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 export default function App() {
   return (
@@ -36,6 +37,10 @@ export default function App() {
         <Route path="/components/select" element={<SelectPage />} />
         <Route path="/components/modal" element={<ModalPage />} />
         <Route path="/components/card" element={<CardPage />} />
+
+        {/* Without this, an unknown URL rendered the shell around an empty
+            <main> — a blank page with no way back. */}
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   );

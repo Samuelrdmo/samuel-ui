@@ -74,6 +74,12 @@ Label.displayName = 'Input.Label';
 const Control = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(
   ({ className, disabled, ...props }, ref) => {
     const { inputId, helperId, errorId, invalid, disabled: contextDisabled } = useInputContext('Control');
+    /**
+     * DS-GUARD: `??`, not `||`. The nullish check is what lets a caller pass
+     * `disabled={false}` on the Control to opt out of a Root that is disabled.
+     * With `||`, an explicit `false` falls through to the context value and the
+     * escape hatch disappears.
+     */
     const isDisabled = disabled ?? contextDisabled;
 
     return (
@@ -82,6 +88,17 @@ const Control = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElemen
         id={inputId}
         disabled={isDisabled}
         aria-invalid={invalid || undefined}
+        /*
+          DS-GUARD: `cn` is joining DOM ids here, not Tailwind classes. It only
+          works because the generated ids (`su-input-:r0:-helper`) match no
+          utility pattern tailwind-merge recognises. Change the id format and
+          twMerge could classify two ids into one group and drop one, quietly
+          breaking the screen-reader association. A plain filter + join is the
+          safer shape if this line is ever touched.
+
+          Known gap: helperId is referenced unconditionally, so a Root rendered
+          without an Input.HelperText points aria-describedby at a missing node.
+        */
         aria-describedby={cn(helperId, invalid && errorId) || undefined}
         className={cn(
           'h-11 rounded-none border bg-surface-elevated px-4 text-sm text-fg-primary placeholder:text-fg-muted transition-colors duration-150',
