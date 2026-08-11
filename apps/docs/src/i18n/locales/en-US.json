@@ -185,11 +185,11 @@
     "introduction": {
       "eyebrow": "Getting Started",
       "title": "Introduction",
-      "description": "Samuel UI is a design system: foundations, decisions, components, patterns and documentation used to build consistent interfaces.",
-      "whatTitle": "What this is",
-      "whatBody": "Samuel UI is simultaneously a design system, a React component library, technical documentation, a UI engineering showcase and documentation written to be consumed efficiently by an LLM. A design system is more than a component library — it's the set of foundations, tokens, patterns and decisions that keep interfaces consistent at scale. V1 ships exactly five components — Button, Input, Select, Modal and Card — built with the same care a much larger system would demand.",
-      "whyTitle": "Why five components",
-      "whyBody": "Quality over quantity. Each component uses compound composition where it earns its keep, is built on top of semantic design tokens, and is accessible by default — keyboard interaction, focus management and ARIA are part of the implementation, not an afterthought."
+      "description": "Samuel UI is an original Design System study created to explore how visual decisions can be organized, documented and transformed into reusable components. The project brings foundations, tokens, components and patterns into the same structure, showing both the design reasoning and the decisions involved in implementation.",
+      "whatTitle": "About the project",
+      "whatBody": "Samuel UI began as a practical exercise to demonstrate my approach to building interfaces and visual systems. Here, each choice moves through different layers of the system, from foundations such as color, typography and spacing to tokens, states, properties, accessibility and component implementation. More than creating an extensive library, the goal is to show how I think about the relationship between visual structure, documentation and front end.",
+      "whyTitle": "Study scope",
+      "whyBody": "The project uses five components as a base to explore different Design System challenges: Button, Input, Select, Modal and Card. The quantity is intentional. The focus is on the depth of each component, exploring composition, variants, states, behavior, accessibility and documentation. With this reduced scope, I can show the decisions behind the system more clearly without turning the project into a complete library."
     },
     "installation": {
       "eyebrow": "Getting Started",

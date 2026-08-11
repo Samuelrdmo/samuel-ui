@@ -185,11 +185,11 @@
     "introduction": {
       "eyebrow": "Primeiros Passos",
       "title": "Introdução",
-      "description": "Samuel UI é um design system: fundamentos, decisões, componentes, padrões e documentação usados para construir interfaces consistentes.",
-      "whatTitle": "O que é isso",
-      "whatBody": "Samuel UI é, ao mesmo tempo, um design system, uma biblioteca de componentes React, documentação técnica, um showcase de UI Engineering e documentação escrita para ser consumida de forma eficiente por uma LLM. Um design system é mais do que uma biblioteca de componentes — é o conjunto de fundamentos, tokens, padrões e decisões que mantêm as interfaces consistentes em escala. A V1 traz exatamente cinco componentes — Button, Input, Select, Modal e Card — construídos com o mesmo cuidado que um sistema muito maior exigiria.",
-      "whyTitle": "Por que cinco componentes",
-      "whyBody": "Qualidade acima de quantidade. Cada componente usa composição quando isso faz sentido, é construído em cima de design tokens semânticos e é acessível por padrão — interação por teclado, gerenciamento de foco e ARIA fazem parte da implementação, não são um detalhe posterior."
+      "description": "Samuel UI é um estudo autoral de Design System criado para explorar como decisões visuais podem ser organizadas, documentadas e transformadas em componentes reutilizáveis. O projeto reúne fundamentos, tokens, componentes e padrões em uma mesma estrutura, mostrando tanto o raciocínio de design quanto as decisões envolvidas na implementação.",
+      "whatTitle": "Sobre o projeto",
+      "whatBody": "O Samuel UI nasceu como um exercício prático para demonstrar minha abordagem na construção de interfaces e sistemas visuais. Aqui, cada escolha passa por diferentes camadas do sistema, desde fundamentos como cor, tipografia e espaçamento até tokens, estados, propriedades, acessibilidade e implementação dos componentes. Mais do que criar uma biblioteca extensa, a proposta é mostrar como penso a relação entre estrutura visual, documentação e front end.",
+      "whyTitle": "Escopo do estudo",
+      "whyBody": "O projeto utiliza cinco componentes como base para explorar diferentes desafios de um Design System: Button, Input, Select, Modal e Card. A quantidade é intencional. O foco está na profundidade de cada componente, explorando composição, variantes, estados, comportamento, acessibilidade e documentação. Com esse escopo reduzido, consigo mostrar com mais clareza as decisões por trás do sistema sem transformar o projeto em uma biblioteca completa."
     },
     "installation": {
       "eyebrow": "Primeiros Passos",
