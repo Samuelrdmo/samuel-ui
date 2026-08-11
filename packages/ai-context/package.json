@@ -1,0 +1,7 @@
+{
+  "name": "@samuel-ui/ai-context",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Token-efficient Markdown context files for using Samuel UI components with an LLM.",
+  "files": ["*.md"]
+}

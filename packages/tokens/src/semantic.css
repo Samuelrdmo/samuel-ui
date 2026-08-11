@@ -1,0 +1,124 @@
+/**
+ * Semantic tokens — the only tokens components are allowed to reference.
+ * Default (no attribute / [data-theme="dark"]) mirrors samuelrdmo.com's
+ * dark language exactly. [data-theme="light"] derives a light theme that
+ * keeps the same personality: near-black/near-white surfaces, thin
+ * translucent borders, lime-green as the single accent.
+ */
+@import './primitives.css';
+
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --bg-canvas: #000000;
+  --bg-surface: #0a0b0a;
+  --bg-surface-elevated: #0c0e0c;
+  --bg-surface-hover: #141714;
+  --bg-overlay: rgba(0, 0, 0, 0.7);
+
+  /* Foreground */
+  --fg-primary: var(--su-neutral-50);
+  --fg-secondary: var(--su-neutral-300);
+  --fg-caption: var(--su-neutral-400);
+  --fg-muted: var(--su-neutral-500);
+  --fg-on-brand: #000000;
+  --fg-disabled: var(--su-neutral-600);
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-default: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.24);
+  --border-brand: rgba(0, 255, 78, 0.55);
+
+  /* Action / brand */
+  --action-primary: var(--su-brand-500);
+  --action-primary-hover: var(--su-brand-400);
+  --action-primary-active: var(--su-brand-600);
+  --action-primary-foreground: #000000;
+  --accent-foreground: var(--su-brand-500);
+
+  /* Feedback */
+  --feedback-danger: var(--su-red-500);
+  --feedback-danger-foreground: #ffffff;
+  --feedback-success: var(--su-emerald-500);
+  --feedback-warning: var(--su-amber-500);
+
+  /* Shadows */
+  --shadow-sm: var(--su-shadow-raw-sm);
+  --shadow-md: var(--su-shadow-raw-md);
+  --shadow-lg: var(--su-shadow-raw-lg);
+  --shadow-focus: 0 0 0 3px rgba(0, 255, 78, 0.35);
+
+  /* Radius (pass-through — same scale in both themes) */
+  --radius-none: var(--su-radius-none);
+  --radius-xs: var(--su-radius-xs);
+  --radius-sm: var(--su-radius-sm);
+  --radius-md: var(--su-radius-md);
+  --radius-lg: var(--su-radius-lg);
+  --radius-xl: var(--su-radius-xl);
+  --radius-full: var(--su-radius-full);
+
+  /* Typography (pass-through) */
+  --font-heading: var(--su-font-heading);
+  --font-body: var(--su-font-body);
+  --font-mono: var(--su-font-mono);
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  /* Surfaces */
+  --bg-canvas: #f6f7f4;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-surface-hover: #eef0eb;
+  --bg-overlay: rgba(12, 14, 12, 0.45);
+
+  /* Foreground */
+  --fg-primary: #12140f;
+  --fg-secondary: #4b5147;
+  --fg-caption: #666d63;
+  --fg-muted: #8a9085;
+  --fg-on-brand: #06110a;
+  --fg-disabled: #b7bcb2;
+
+  /* Borders */
+  --border-subtle: rgba(15, 18, 14, 0.08);
+  --border-default: rgba(15, 18, 14, 0.14);
+  --border-strong: rgba(15, 18, 14, 0.24);
+  --border-brand: rgba(0, 168, 51, 0.45);
+
+  /* Action / brand — fills stay brand-500 (matches dark button), but text/
+     icon uses brand-700 for AA contrast on a light surface */
+  --action-primary: var(--su-brand-500);
+  --action-primary-hover: var(--su-brand-600);
+  --action-primary-active: var(--su-brand-700);
+  --action-primary-foreground: #06110a;
+  --accent-foreground: var(--su-brand-700);
+
+  /* Feedback */
+  --feedback-danger: var(--su-red-700);
+  --feedback-danger-foreground: #ffffff;
+  --feedback-success: var(--su-emerald-700);
+  --feedback-warning: var(--su-amber-700);
+
+  /* Shadows — softer, no ambient glow in light mode */
+  --shadow-sm: 0 2px 8px rgba(15, 18, 14, 0.06);
+  --shadow-md: 0 12px 32px rgba(15, 18, 14, 0.08);
+  --shadow-lg: 0 20px 48px rgba(15, 18, 14, 0.1);
+  --shadow-focus: 0 0 0 3px rgba(0, 168, 51, 0.28);
+
+  --radius-none: var(--su-radius-none);
+  --radius-xs: var(--su-radius-xs);
+  --radius-sm: var(--su-radius-sm);
+  --radius-md: var(--su-radius-md);
+  --radius-lg: var(--su-radius-lg);
+  --radius-xl: var(--su-radius-xl);
+  --radius-full: var(--su-radius-full);
+
+  --font-heading: var(--su-font-heading);
+  --font-body: var(--su-font-body);
+  --font-mono: var(--su-font-mono);
+}

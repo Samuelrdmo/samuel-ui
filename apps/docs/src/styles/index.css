@@ -1,0 +1,286 @@
+@import '@samuel-ui/tokens/semantic.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-canvas);
+  color: var(--fg-secondary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+::selection {
+  background: var(--action-primary);
+  color: var(--fg-on-brand);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  color: var(--fg-primary);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border: 2px solid var(--bg-canvas);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Film-grain overlay, same technique as samuelrdmo.com: a tileable raster
+   noise PNG (not an SVG filter — feTurbulence doesn't render consistently
+   across GPUs) animated in 2 steps for a cheap flicker. */
+.noise {
+  position: fixed;
+  inset: -50%;
+  z-index: 150;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url('/images/noise.png');
+  background-repeat: repeat;
+  background-size: 128px 128px;
+  animation: grain 0.9s steps(2) infinite;
+}
+
+[data-theme='light'] .noise {
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+}
+
+@keyframes grain {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-2%, 3%);
+  }
+  50% {
+    transform: translate(3%, -2%);
+  }
+  75% {
+    transform: translate(-3%, -3%);
+  }
+  100% {
+    transform: translate(2%, 2%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .noise {
+    animation: none;
+  }
+}
+
+/* Component preview canvas — black surface with a fine grid, like a design
+   tool's canvas, so the real component reads as "placed on a canvas" rather
+   than sitting on another content card. */
+.preview-surface {
+  --preview-grid-line: rgba(255, 255, 255, 0.035);
+
+  background-color: var(--bg-canvas);
+  background-image:
+    linear-gradient(var(--preview-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--preview-grid-line) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+[data-theme='light'] .preview-surface {
+  --preview-grid-line: rgba(15, 18, 14, 0.05);
+}
+
+/* Home system map and connected modules. These details reuse the same visual
+   grammar as the portfolio: square modules, faint grids and precise markers.
+   Flat surfaces only, no gradient washes. */
+.home-system-map {
+  position: relative;
+}
+
+.home-system-map::before,
+.home-system-map::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+}
+
+.home-system-map::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid var(--action-primary);
+  border-left: 1px solid var(--action-primary);
+}
+
+.home-system-map::after {
+  right: -1px;
+  bottom: -1px;
+  border-right: 1px solid var(--action-primary);
+  border-bottom: 1px solid var(--action-primary);
+}
+
+.home-status-dot {
+  animation: home-status 1.8s steps(2, end) infinite;
+}
+
+@keyframes home-status {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.35;
+  }
+}
+
+.home-map-axis {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--border-subtle);
+}
+
+.home-map-axis-x {
+  top: 38%;
+  right: 0;
+  left: 0;
+  height: 1px;
+}
+
+.home-map-axis-y {
+  top: 0;
+  bottom: 0;
+  left: 68%;
+  width: 1px;
+}
+
+.home-map-layer {
+  width: calc(100% - var(--layer-offset));
+  margin-left: var(--layer-offset);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.home-map-layer:hover {
+  border-color: var(--border-brand);
+  transform: translateX(3px);
+}
+
+.home-capability {
+  background: var(--bg-surface-elevated);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.home-capability::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  left: -1px;
+  height: 2px;
+  background: var(--action-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.home-capability:hover {
+  z-index: 1;
+  border-color: var(--border-brand);
+  background: var(--bg-surface-hover);
+}
+
+.home-capability:hover::before {
+  transform: scaleX(1);
+}
+
+.home-layer-row {
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.home-layer-row::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background: var(--action-primary);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.2s ease;
+}
+
+.home-layer-row:hover {
+  background: var(--bg-surface-hover);
+}
+
+.home-layer-row:hover::before {
+  transform: scaleY(1);
+}
+
+.home-final-cta {
+  --grid-line: rgba(255, 255, 255, 0.035);
+
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+[data-theme='light'] .home-final-cta {
+  --grid-line: rgba(15, 18, 14, 0.05);
+}
+
+.home-final-cta::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 96px;
+  height: 96px;
+  border-bottom: 1px solid var(--border-brand);
+  border-left: 1px solid var(--border-brand);
+  transform: translate(48px, -48px) rotate(45deg);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-status-dot {
+    animation: none;
+  }
+}
