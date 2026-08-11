@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "packageManager": "pnpm@11.7.0",
   "description": "Samuel UI — a Design System that is also a React library, technical documentation, AI-ready docs, and a UI Engineering showcase.",
   "license": "MIT",
   "scripts": {
