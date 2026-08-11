@@ -416,7 +416,7 @@
     "card": {
       "title": "Card",
       "description": "A flexible surface container, recomposed for different situations instead of turning into a one-off \"ProjectCard\".",
-      "sameApiTitle": "Same API, four use cases",
+      "sameApiTitle": "Four use cases",
       "projectCardTitle": "Design Systems",
       "projectCardDescription": "Project card",
       "projectCardBody": "Tokens, components and documentation shipped together.",
