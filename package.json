@@ -21,7 +21,7 @@
     "validate": "pnpm lint && pnpm typecheck && pnpm test"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=22.13"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",
