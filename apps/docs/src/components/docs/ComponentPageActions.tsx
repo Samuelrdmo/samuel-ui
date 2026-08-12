@@ -17,12 +17,6 @@ export function ComponentPageActions({ slug }: { slug: ComponentSlug }) {
 
   return (
     <div className="flex flex-wrap items-center gap-2">
-      <a href={`${EXTERNAL_LINKS.storybook}/?path=/story/${slug}`} target="_blank" rel="noreferrer">
-        <Button.Root variant="outline" size="sm">
-          {t('actions.openInStorybook')}
-        </Button.Root>
-      </a>
-
       <a
         href={`${EXTERNAL_LINKS.github}/tree/main/packages/ui/src/components/${slug}`}
         target="_blank"

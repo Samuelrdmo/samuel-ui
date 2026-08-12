@@ -33,9 +33,6 @@ export function Header() {
           <Link to="/docs/introduction" className="transition-colors hover:text-fg-primary">
             {t('header.documentation')}
           </Link>
-          <a href={EXTERNAL_LINKS.storybook} target="_blank" rel="noreferrer" className="transition-colors hover:text-fg-primary">
-            {t('header.storybook')}
-          </a>
           <a href={EXTERNAL_LINKS.github} target="_blank" rel="noreferrer" className="transition-colors hover:text-fg-primary">
             {t('header.github')}
           </a>

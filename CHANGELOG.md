@@ -21,7 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - Focus rings are declared per Button variant rather than on the shared base
 - Breadcrumbs use `nav` + ordered list with `aria-current`; the props table uses `scope`, a caption, and a keyboard-reachable scroll region
-- The Storybook link reads `VITE_STORYBOOK_URL` instead of hardcoding `localhost:6006`
+- Storybook is now a local-only dev tool: every public link/CTA pointing at it was removed from the docs site (header nav, component page actions); run it with `pnpm dev:storybook`, see the README
 - Home page rebuilt on a continuous page-wide grid, with a component anatomy section replacing the token-to-interface chain
 - Section dividers terminate on the vertical rails instead of bleeding to the viewport edge
 

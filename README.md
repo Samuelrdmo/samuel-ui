@@ -9,8 +9,9 @@ Samuel UI is not just a component library. It is simultaneously a design system,
 ## Links
 
 - Documentation — `pnpm dev:docs` (see [Development](#development))
-- Storybook — `pnpm dev:storybook`
 - npm — not published yet (`@samuel-ui/react`)
+
+Storybook is part of the project but is not deployed publicly — see [Storybook](#storybook) below to run it locally.
 
 ## Features
 
@@ -19,7 +20,7 @@ Samuel UI is not just a component library. It is simultaneously a design system,
 - **Light, dark and system themes**, both fully token-driven
 - **Radix UI primitives** for Select and Modal — real keyboard navigation, focus management, focus trap, scroll lock and ARIA, not reimplemented
 - **A documentation site** that renders the real components (not screenshots) alongside foundations, API references and accessibility notes
-- **Storybook** consuming the same components as the docs site — no duplicated implementations
+- **Storybook** consuming the same components as the docs site — no duplicated implementations, run locally as a dev tool (not deployed)
 - **AI Context** — a short, token-efficient Markdown file per component, built for pasting into an LLM's context window
 
 ## Architecture
@@ -32,7 +33,7 @@ samuel-ui/
     ai-context/     button.md, input.md, select.md, modal.md, card.md, samuel-ui.md
   apps/
     docs/           Documentation website (Vite + React Router)
-    storybook/      Storybook, consuming @samuel-ui/react directly
+    storybook/      Storybook, consuming @samuel-ui/react directly (dev tool, run locally, not deployed)
 ```
 
 Extracted from real components, not the other way around: the visual language (near-black surfaces, lime-green accent, mono uppercase labels, thin translucent borders) is derived from [samuelrdmo.com](https://samuelrdmo.com)'s own design tokens.
@@ -50,6 +51,17 @@ Once published:
 ```bash
 npm install @samuel-ui/react
 ```
+
+## Storybook
+
+The project ships with Storybook for isolated component documentation and visual review — it is a development tool, not a page deployed alongside the public docs site. After cloning the repo and installing dependencies, run it locally:
+
+```bash
+pnpm install
+pnpm dev:storybook
+```
+
+Storybook will then be available locally at the address and port the project configures (`http://localhost:6006` by default).
 
 ## Usage
 
@@ -111,7 +123,7 @@ Each component has a short Markdown file in `packages/ai-context/` — import pa
 ```bash
 pnpm install          # install everything
 pnpm dev:docs         # docs site → http://localhost:5183
-pnpm dev:storybook    # storybook → http://localhost:6006
+pnpm dev:storybook    # storybook (dev tool, not deployed) → http://localhost:6006
 pnpm build:ui         # typecheck + bundle @samuel-ui/react
 ```
 
@@ -124,8 +136,6 @@ pnpm typecheck        # tsc --noEmit across every package
 pnpm test             # Vitest + Testing Library
 pnpm format           # Prettier
 ```
-
-The docs site reads `VITE_STORYBOOK_URL` for the "Open in Storybook" action. Unset, it falls back to the local dev port — see [`apps/docs/.env.example`](apps/docs/.env.example).
 
 ### Reading the code
 

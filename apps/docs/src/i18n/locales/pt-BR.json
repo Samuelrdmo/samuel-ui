@@ -1,7 +1,6 @@
 {
   "header": {
     "documentation": "Documentação",
-    "storybook": "Storybook",
     "github": "GitHub",
     "openNav": "Abrir navegação",
     "closeNav": "Fechar navegação",
@@ -313,7 +312,6 @@
     "label": "Propriedades do componente"
   },
   "actions": {
-    "openInStorybook": "Abrir no Storybook",
     "viewSource": "Ver código-fonte",
     "copyForAi": "Copiar para IA",
     "aiContextCopied": "Contexto de IA copiado",

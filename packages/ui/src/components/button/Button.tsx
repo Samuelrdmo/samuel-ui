@@ -17,7 +17,15 @@ const primaryClipLg =
   '[clip-path:polygon(0_0,calc(100%_-_12px)_0,100%_12px,100%_100%,12px_100%,0_calc(100%_-_12px))]';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none font-mono text-[13px] font-medium uppercase tracking-[0.1em] transition-colors duration-150 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-40',
+  /**
+   * DS-GUARD: `leading-none` is required, not cosmetic. Without it the label
+   * inherits the body's `line-height: 1.6`, a paragraph-reading value, on a
+   * single-line all-caps mono label. flexbox centers that generous line box
+   * correctly, but the caps-only glyphs (no descenders) don't fill it
+   * symmetrically, so the visible ink reads a few pixels above the button's
+   * true center — the box is centered, the text inside it only looks off.
+   */
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none font-mono text-[13px] font-medium uppercase leading-none tracking-[0.1em] transition-colors duration-150 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-40',
   {
     variants: {
       /**
@@ -38,8 +46,25 @@ const buttonVariants = cva(
           'bg-action-primary text-action-primary-foreground hover:bg-action-primary-hover active:bg-action-primary-active focus-visible:shadow-[inset_0_0_0_2px_var(--action-primary-foreground)]',
         secondary:
           'bg-surface-elevated text-fg-primary border border-border hover:border-border-brand hover:text-accent hover:bg-surface-hover focus-visible:shadow-focus',
+        /**
+         * DS-GUARD: no `h-auto` here — ghost takes the same h-9/h-11/h-14 as
+         * every sibling of its size (see compoundVariants below, which used to
+         * shrink it). It has no box of its own to signal its height, so next to
+         * a filled button in a row it would sit shorter and top-align, reading
+         * as vertically "off" even though nothing was actually misaligned —
+         * that was the entire original bug.
+         *
+         * DS-GUARD: the mark is `underline`/`decoration-*`, not a manual
+         * `border-b` on the element. `buttonVariants()` is a documented public
+         * export precisely so these classes can be applied to something other
+         * than Button.Root (e.g. a router Link — see the ghost CTA on the home
+         * page), so the mark has to live in the class string itself, not in
+         * Root's JSX. A border-bottom on a now-full-height element sits at the
+         * box's bottom edge, far from the text; text-decoration hugs the
+         * glyphs' own baseline regardless of the box around them, for free.
+         */
         ghost:
-          'bg-transparent text-accent px-0 py-2 border-b border-transparent hover:border-border-brand focus-visible:shadow-focus',
+          'bg-transparent text-accent px-0 underline decoration-transparent underline-offset-2 hover:decoration-border-brand focus-visible:shadow-focus',
         outline:
           'bg-transparent text-fg-primary border border-border hover:border-border-brand hover:text-accent focus-visible:shadow-focus',
         destructive: 'bg-danger text-danger-foreground hover:opacity-90 focus-visible:shadow-focus',
@@ -51,7 +76,6 @@ const buttonVariants = cva(
       },
     },
     compoundVariants: [
-      { variant: 'ghost', size: ['sm', 'md', 'lg'], class: 'h-auto' },
       { variant: 'primary', size: 'sm', class: primaryClipSm },
       { variant: 'primary', size: 'md', class: primaryClipMd },
       { variant: 'primary', size: 'lg', class: primaryClipLg },
